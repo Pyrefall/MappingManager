@@ -1,0 +1,1447 @@
+{
+  "intro_line": "LF Snipers: (Overnight OK)",
+  "regions": [
+    {
+      "id": "ed591eb3-0a1b-4a3d-81a5-496dee89e625",
+      "type": "region",
+      "name": "Floating Islands",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "e9e36024-bf3b-43b1-b2b8-c17134bb1e8b",
+          "type": "enemy",
+          "name": "Paragon of Dragons",
+          "include": false,
+          "completed": false,
+          "override_message": "Paragon of Dragons:draconic:",
+          "needs_snipe": true,
+          "price": 120,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "407dd701-f8eb-433d-bfb8-534dcf3690db",
+          "type": "enemy",
+          "name": "Paragon of Forgotten",
+          "include": false,
+          "completed": false,
+          "override_message": "Paragon of Forgotten:forgotten:",
+          "needs_snipe": true,
+          "price": 120,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "aea006ce-d5fc-488c-8bde-1fc6a772e599",
+          "type": "enemy",
+          "name": "Paragon of Shadow",
+          "include": false,
+          "completed": false,
+          "override_message": "Paragon of Shadow:shadow:",
+          "needs_snipe": true,
+          "price": 120,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "adc8ec2d-4817-44e2-a772-a24b33efc423",
+          "type": "enemy",
+          "name": "Paragon of Strength",
+          "include": false,
+          "completed": false,
+          "override_message": "Paragon of Strength:physical:",
+          "needs_snipe": true,
+          "price": 120,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "b3879313-21eb-40ff-973d-c9999a939970",
+          "type": "enemy",
+          "name": "Paragon of Tactics",
+          "include": false,
+          "completed": false,
+          "override_message": "Paragon of Tactics:tactical:",
+          "needs_snipe": true,
+          "price": 120,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "d57a1108-6007-48b7-abd9-1fc7c11028d5",
+          "type": "enemy",
+          "name": "Paragon of the Lawless",
+          "include": false,
+          "completed": false,
+          "override_message": "Paragon of Lawless:law:",
+          "needs_snipe": true,
+          "price": 120,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "ba52e0a8-27a5-4ca0-9050-0dbd0659caf7",
+          "type": "enemy",
+          "name": "Paragon of Water",
+          "include": false,
+          "completed": false,
+          "override_message": "Paragon of Water:hydro:",
+          "needs_snipe": true,
+          "price": 120,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "1d1bc736-747c-45e3-9f64-fa05fad3a5cb",
+          "type": "enemy",
+          "name": "Paragon of Arcane",
+          "include": false,
+          "completed": false,
+          "override_message": "Paragon of Arcane:arcane:",
+          "needs_snipe": true,
+          "price": 120,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "7836b198-b534-4a8e-802b-5163ea1decd3",
+          "type": "enemy",
+          "name": "Richard the Rich",
+          "include": false,
+          "completed": false,
+          "override_message": "Richard the Rich:lootkey:",
+          "needs_snipe": true,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "cffb7d4d-22a7-4efc-8d5b-2b1c1a4d67e2",
+          "type": "enemy",
+          "name": "Admiral Cloudbeard",
+          "include": false,
+          "completed": false,
+          "override_message": "Admiral Cloudbeard ACB:pirateseal:",
+          "needs_snipe": true,
+          "price": 20,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "b97d3d53-6378-4f69-9aa4-98543d75d5b2",
+          "type": "enemy",
+          "name": "Empyrean Empress",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 30,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "9d428b5b-6d9b-49bd-b817-2981f1002242",
+          "type": "enemy",
+          "name": "Empyrean Appraiser",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 20,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "c04cb910-355b-400b-a341-6e318bf6a3be",
+          "type": "enemy",
+          "name": "Consumed Charm Tinkerer",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 20,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "9f3d0971-8c65-4ca2-9cfa-a2361faa6018",
+          "type": "enemy",
+          "name": "Fortuitous Fool",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "c8db0908-b1d8-430c-993b-2ff0e7bc869b",
+          "type": "enemy",
+          "name": "Empyrean Geologist",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 25,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "63933be2-6bb4-46fc-8982-0243b2d6c5ae",
+          "type": "enemy",
+          "name": "Peggy the Plunderer",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 20,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "Around 5 to 6 Paragon per RECS map.",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "70954481-1219-4a3d-a486-e6022e1fd97e",
+      "type": "region",
+      "name": "Zokor",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "1da91f5a-eae3-4e1a-9cc8-3fc2e4a98c94",
+          "type": "enemy",
+          "name": "Retired Minotaur",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 595,
+          "children": [],
+          "sidenotes": "3 Type 30/30/30 + 1 Key"
+        },
+        {
+          "id": "e5ca8a9e-7683-4729-8f13-66183e6ed4a5",
+          "type": "enemy",
+          "name": "Manaforge Smith",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 450,
+          "children": [],
+          "sidenotes": "Tech!!"
+        },
+        {
+          "id": "85a0b14e-c704-4479-a9ff-3bed43178e4f",
+          "type": "enemy",
+          "name": "Paladin Weapon Master",
+          "include": false,
+          "completed": false,
+          "override_message": "PWM (Paladin Weapon Master)",
+          "needs_snipe": true,
+          "price": 440,
+          "children": [],
+          "sidenotes": "Fealty!!"
+        },
+        {
+          "id": "4d4a0c18-17c5-4bfe-a0d6-4a1696ff51c5",
+          "type": "enemy",
+          "name": "Soul Binder",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 440,
+          "children": [],
+          "sidenotes": "Scholar"
+        },
+        {
+          "id": "98acdcda-3957-4919-9fe6-cc25d82697d2",
+          "type": "enemy",
+          "name": "Molten Midas",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 36,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "d5927c8e-352e-4457-ba32-da01ccb3835d",
+      "type": "region",
+      "name": "Queso Geyser Area",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "de5fab1e-36d8-4659-8ebb-51125f5b1e13",
+          "type": "enemy",
+          "name": "Stormsurge the Vile Tempest",
+          "include": false,
+          "completed": false,
+          "override_message": "Stormsurge",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "e7e271ee-5b4a-4521-983b-526911c42201",
+          "type": "enemy",
+          "name": "Corkataur",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 36,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "8eade46a-1580-4ace-a2f0-42b5f0db561e",
+          "type": "enemy",
+          "name": "Nachous the Molten",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": "In Cantera Quarry"
+        },
+        {
+          "id": "69c905d8-8b40-4bd6-a38b-4e5b5b5f79c1",
+          "type": "enemy",
+          "name": "Inferna the Engulfed",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": "In Prickly Plains"
+        },
+        {
+          "id": "06b03ae9-f090-41e5-875c-dc304961bba3",
+          "type": "enemy",
+          "name": "Emberstone Scaled",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 74,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "c5e01e70-6dea-4e02-bd09-2bf543764d2a",
+          "type": "enemy",
+          "name": "Bruticus the Blazing",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "e2990829-6a1a-4589-b3b1-8194b4946eab",
+          "type": "enemy",
+          "name": "Pyrehyde",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 25,
+          "children": [],
+          "sidenotes": "Pressure Building, Flamin"
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "52047226-ee0e-427b-b520-3ec6d94073e6",
+      "type": "region",
+      "name": "Whisker Woods Rift",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "1dfb6d86-2593-4918-b28e-b0dc8d8c1219",
+          "type": "enemy",
+          "name": "Centaur Ranger",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 40,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "7584ef44-c3ed-48cb-830c-8c40c88313c3",
+          "type": "enemy",
+          "name": "Cyclops Barbarian",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 45,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "961b9181-68b8-4dcb-b15e-c57964242214",
+          "type": "enemy",
+          "name": "Tri-dra",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 45,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "feeae7b1-cc7a-459c-acb1-2fd19ea10894",
+      "type": "region",
+      "name": "Table of Contents Area",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "8ee87e30-d101-4b72-81c4-94302586bfd5",
+          "type": "enemy",
+          "name": "Bitter Grammarian",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "54ad7493-48df-4de6-a471-16036cfb9aa9",
+      "type": "region",
+      "name": "Zugzwang's Tower Area",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "dc9cca69-c557-4e14-9b5f-47cbda10d7a7",
+          "type": "enemy",
+          "name": "Mystic King",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 185,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "2a8ef05d-1b56-4f96-8bbc-025c8a9c557a",
+          "type": "enemy",
+          "name": "Technic King",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 195,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "9a181c28-f514-48fd-af53-f6319b809d2a",
+          "type": "enemy",
+          "name": "Zurreal the Eternal",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 315,
+          "children": [],
+          "sidenotes": "Need Scholar Charm. Scholar Charm Can only be obtained from \"Zurreal Trap Research Assignment OR Catching a Chess Master with Uncharged Scholar Charm\""
+        },
+        {
+          "id": "f46b5965-306c-44b1-bf90-392e93792511",
+          "type": "enemy",
+          "name": "Chess Master",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 26,
+          "children": [],
+          "sidenotes": "Add to pool after King is caught. Arming Checkmate Cheese or Stalemate Charm(Better) when catching King."
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "ce441a7d-9388-47eb-8875-f1172455349a",
+      "type": "region",
+      "name": "Fiery Warpath",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "345ab5dd-c460-466d-b227-06728f441040",
+          "type": "enemy",
+          "name": "Gargantuamouse",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 74,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "696fa437-a13b-4de7-aa0a-796d974a27d8",
+          "type": "subgroup",
+          "name": "Warmonger + TW",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 510,
+          "children": [
+            {
+              "id": "f3253bf4-51bb-46a0-a428-af2b007c6862",
+              "type": "enemy",
+              "name": "Warmonger",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 495,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "ed716064-2e3f-4904-9a59-3c3473d55c97",
+              "type": "enemy",
+              "name": "Theurgy Warden",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "5caf654a-ac03-4c2a-9dbb-1f00036ea91f",
+      "type": "region",
+      "name": "Living Garden Area",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "fbcaa2a9-c46b-447e-86a5-d26343f61282",
+          "type": "enemy",
+          "name": "Twisted Carmine",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 20,
+          "children": [],
+          "sidenotes": "1. use Duskshade Camembert to go to Twisted Garden. 2. Use Lunaria Camembert, CR: 25%"
+        },
+        {
+          "id": "81aff317-4ca0-4dab-8779-fa380e41fb4e",
+          "type": "enemy",
+          "name": "Carmine the Apothecary",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 20,
+          "children": [],
+          "sidenotes": "1. use standrad bait-go back to normal garden. 2. Use Duskshade Camembert Bait to attract. CR: 8.7%"
+        },
+        {
+          "id": "a88bb711-0cc9-4a65-9bd9-0a408dc7e5cd",
+          "type": "enemy",
+          "name": "Cursed Librarian",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 11,
+          "children": [],
+          "sidenotes": "In Cursed City"
+        },
+        {
+          "id": "cc7cd928-085b-4488-b504-7c7fbb263a00",
+          "type": "enemy",
+          "name": "King Grub",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 64,
+          "children": [],
+          "sidenotes": "In Sand Dunes"
+        },
+        {
+          "id": "76afdd6f-8d6e-4037-b8a4-e0a07519aac3",
+          "type": "enemy",
+          "name": "Shattered Carmine",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 100,
+          "children": [],
+          "sidenotes": "Sharttering charm."
+        },
+        {
+          "id": "143162b2-3c21-4a66-bb55-c9e6cd90dc2d",
+          "type": "enemy",
+          "name": "King Scarab",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 100,
+          "children": [],
+          "sidenotes": "Sharttering charm."
+        },
+        {
+          "id": "c869f58e-ef16-4515-9dc7-f20e5b714cd8",
+          "type": "enemy",
+          "name": "Dark Magi",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 100,
+          "children": [],
+          "sidenotes": "Sharttering charm."
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "e8f96ecb-1c9e-4e98-a685-190755d754fd",
+      "type": "region",
+      "name": "Fungal Cavern",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "fb65c206-8fab-4cdd-9433-f82f309975ca",
+          "type": "subgroup",
+          "name": "Diamondhide nF",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 300,
+          "children": [
+            {
+              "id": "b7b17f90-00a9-4656-b66d-e9f0c3e6c5f9",
+              "type": "enemy",
+              "name": "Diamondhide",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 270,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "7d691756-ad8e-4367-be65-fd4e1f1cf8d8",
+              "type": "enemy",
+              "name": "Huntereater",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 75,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "089254b8-a281-41ec-a941-7eb9095f334f",
+      "type": "region",
+      "name": "Valour Rift",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "26803ceb-d1ce-4f45-a41c-2a3d01b995a9",
+          "type": "enemy",
+          "name": "Shade of the Eclipse",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 20,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "88262b23-b37d-474f-b6e3-3d106a9fed59",
+          "type": "subgroup",
+          "name": "TE + Bulwark",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 100,
+          "children": [
+            {
+              "id": "4dc414d3-8039-48c4-9863-4ade6fce8777",
+              "type": "enemy",
+              "name": "The Total Eclipse",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "f19457a8-117a-4431-8b92-1dcc12c9b64c",
+              "type": "enemy",
+              "name": "Bulwark of Ascent",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "0f664daf-e768-4242-b923-2cd0e09b8d57",
+      "type": "region",
+      "name": "Furoma Rift",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "41c379ca-a772-4415-bcdf-18050c326677",
+          "type": "enemy",
+          "name": "Grand Master of the Dojo",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 15,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "5678c28c-0d3d-4c1c-a73e-de7c8c922cc7",
+          "type": "enemy",
+          "name": "Supreme Sensei",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 15,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "00b0c2e3-2261-4d08-bc55-e3a211894c64",
+      "type": "region",
+      "name": "Burroughs Rift",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "48fe4b26-687a-4088-bc05-fb864cad5cca",
+          "type": "enemy",
+          "name": "Menace of the Rift",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [],
+          "sidenotes": "Red Zone, Polluted Parmesan, 19%CR"
+        },
+        {
+          "id": "da69502f-998d-4a64-a337-6c3436430d2d",
+          "type": "enemy",
+          "name": "Monstrous Abomination",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 20,
+          "children": [],
+          "sidenotes": "Red Zone, Magical String, 100%"
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "c4d10732-ec84-4f82-84b2-2b2c9c9c7ab9",
+      "type": "region",
+      "name": "Dracano-All 3",
+      "include": false,
+      "completed": false,
+      "override_message": "Dracano(dragon  + warden + Whelpling)",
+      "needs_snipe": false,
+      "price": 45,
+      "children": [
+        {
+          "id": "50b00efc-1b4a-4a90-bc59-66ea6aa50dc5",
+          "type": "enemy",
+          "name": "Draconic Warden",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "7f109ee1-d485-4224-82f3-2ccd31ee7e25",
+          "type": "enemy",
+          "name": "Dragon",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "b2c784e0-6861-41a3-9256-6359d4f0ab6e",
+          "type": "enemy",
+          "name": "Whelpling",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": false,
+      "auto_collapse": true
+    },
+    {
+      "id": "b48c24eb-4e20-47ec-b1a6-9c351167079a",
+      "type": "region",
+      "name": "Muridae Market-Set of two",
+      "include": false,
+      "completed": false,
+      "override_message": "Blacksmith+Mage Weaver",
+      "needs_snipe": false,
+      "price": 50,
+      "children": [
+        {
+          "id": "288b5e65-91de-47a8-b6d2-d36fbfb3afdd",
+          "type": "enemy",
+          "name": "Blacksmith",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [],
+          "sidenotes": "SB+ = highest CR. ARM Artisan charm!"
+        },
+        {
+          "id": "08a74d5a-1d85-445e-b48e-97953ad23179",
+          "type": "enemy",
+          "name": "Mage Weaver",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [],
+          "sidenotes": "SB+ = highest CR. ARM Artisan charm!"
+        }
+      ],
+      "sidenotes": "SB+ = highest CR. ARM Artisan charm!",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "a45a18ee-a1b2-4f5a-900d-0357ccaa7d17",
+      "type": "region",
+      "name": "Fort Rox",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "c1cf050f-29da-4bf8-95ff-e5c36858ade4",
+          "type": "enemy",
+          "name": "Monster of the Meteor",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 20,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "5be803d4-cabd-40ff-8394-a89a2d899cdf",
+          "type": "enemy",
+          "name": "Dawn Guardian",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 20,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "8c9ff0cf-c418-4cfc-96bd-aae207930653",
+      "type": "region",
+      "name": "Sunken City",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "d6738aa3-7f93-418c-887c-420d001a4969",
+          "type": "enemy",
+          "name": "Tritus",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 180,
+          "children": [],
+          "sidenotes": "Only in 25000+ Zone Lair of the Ancients"
+        },
+        {
+          "id": "1ef112f3-14e8-4bbc-b675-de3231f6a47a",
+          "type": "enemy",
+          "name": "Ancient of the Deep",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 89,
+          "children": [],
+          "sidenotes": "Only in 25000+ Zone Lair of the Ancients"
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "ccd53594-8c65-498b-94c0-85fd056fc051",
+      "type": "region",
+      "name": "Bristle Woods Rift",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "21ae8cbd-a558-4d05-a291-2ec66ebc47eb",
+          "type": "enemy",
+          "name": "Absolute Acolyte",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 64,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "27c78645-2e44-4aff-9724-10a6e7d5bb82",
+      "type": "region",
+      "name": "Iceberg",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "598c25ef-f960-4969-85bd-71d47b41cadf",
+          "type": "enemy",
+          "name": "Icewing",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 520,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "a2db810a-fdb9-4eaf-9152-d9b12cc0d755",
+          "type": "enemy",
+          "name": "Deep",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 16,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "7e6c6b9f-5f5b-4898-8e7e-55a68c1bcf53",
+      "type": "region",
+      "name": "Balack's Cove",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "3855ee6d-5f65-45e3-8526-3711fc1956cf",
+          "type": "enemy",
+          "name": "Balack the Banished",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 60,
+          "children": [],
+          "sidenotes": "Medium Tide = 39.6% AR"
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "4519c6dd-89f6-47a7-a63e-dbfee93d0073",
+      "type": "region",
+      "name": "Gnawnia Rift",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "603f50ef-53f1-449a-a9b6-7dfe9ea0ca5e",
+          "type": "enemy",
+          "name": "Goliath Field",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "61a7d1c7-854b-4f59-9616-64f4eff30562",
+      "type": "region",
+      "name": "M400",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": true,
+      "price": 340,
+      "children": [],
+      "sidenotes": "Accept M400 Hunting Research Assignment. Appears in Step 10 of Reserach Assignment. Can use EMP400 Charm.",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "78e58732-47c9-472a-81b4-70d4aee15f30",
+      "type": "region",
+      "name": "Lagoon",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "ff96c956-8b23-4356-acf9-43d7dfad43eb",
+          "type": "enemy",
+          "name": "Silth",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "31166051-844d-4ddd-b969-36e5f9c2f362",
+      "type": "region",
+      "name": "Bountiful Beanstalk",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "bd409a16-f6f3-4c48-937c-50dc7befa9ce",
+          "type": "enemy",
+          "name": "Mythical Giant King",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 30,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "6f230cf0-ba44-4ee9-a013-340b7c686ecd",
+          "type": "enemy",
+          "name": "Vinneus Stalkhome",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 30,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "84b809a4-42a3-46be-b332-215f44dd365b",
+          "type": "enemy",
+          "name": "Malevolent Maestro",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 25,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "90ebf30f-afdb-4125-baa3-97476f10bdd2",
+          "type": "enemy",
+          "name": "Dungeon Master",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 50,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "4a2a823c-2a01-4848-9c47-0bff9e8d94c2",
+      "type": "region",
+      "name": "Pinnacle Chamber",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "d7d2a1ca-c5b1-416b-8160-d7f60ffc229b",
+          "type": "enemy",
+          "name": "Dojo Sensei",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "3c6e5aef-e058-4ecc-9410-06029119e1ea",
+      "type": "region",
+      "name": "Mountain",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "2b7f74b3-b7ec-478f-bb3e-e23567e08b7e",
+          "type": "enemy",
+          "name": "Abominable Snow",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "f98425cd-9586-4ad5-90e6-5827d71f064b",
+      "type": "region",
+      "name": "Town of Digby",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "e4c385fb-ce96-41f4-84f3-5f2c3f297e9d",
+          "type": "enemy",
+          "name": "Big Bad Burroughs",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "201118e2-29e8-40e6-9c6b-b52336f762f7",
+      "type": "region",
+      "name": "Windmill",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "8b20b87b-6860-4a79-81d0-cd666a0139bc",
+          "type": "enemy",
+          "name": "Captain Croissant",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "1af0c2e7-72fc-4d7c-9487-ba26d55eb7e6",
+      "type": "region",
+      "name": "Acolyte Realm",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "3df37241-ecdd-4cd5-8bb8-28e58e9aff26",
+          "type": "enemy",
+          "name": "Chrono",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 180,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "7611860d-e98f-44de-8247-4c6214bae362",
+      "type": "region",
+      "name": "Toxic Spill",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "1e628a4f-533b-4fcc-95a6-3fc2f00f2fb2",
+          "type": "enemy",
+          "name": "The Menace",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 85,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    }
+  ],
+  "search_prefix": "in:\n map-snipers",
+  "search_copy_word_count": 1,
+  "thankyou_text": "Invited and paid, Thank you!"
+}
