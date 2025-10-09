@@ -1,3 +1,18 @@
+
+> **Author’s Note**
+>
+> This tool started as a personal utility to speed up my own Mapping. Out of a bit of show-and-tell and an open-source spirit, I’m sharing it with fellow players.
+>
+> When used correctly, it can import dozens of targets in one click, set their states, auto-generate LF messages, help you search the latest prices, and run simple stats. For simpler maps (e.g., **ROOD**), it typically saves about **30–60 minutes** per run. For very complex maps (e.g., **M1K**), it saves your brain cells so you can enjoy the planning.
+>
+> I haven’t written JavaScript in years and had zero experience with Chrome userscripts/extensions. The browser userscript was auto-generated with **Codex** and then iteratively refined with small tweaks.
+>
+> Below are the installation and usage instructions. If you’d rather not set things up and are okay trusting my build, download the **prebuilt package** from the **Releases** sidebar.
+>
+> I hope this helps. The project hasn’t been stress-tested; bugs are likely. If you find one, please open an issue—thanks!
+
+---
+
 # MH Mapping Manager 3.1.0
 
 Mapping Manager is a Tkinter desktop assistant (with a companion Tampermonkey userscript) for coordinating MouseHunt map runs. It helps you manage region/subgroup/enemy hierarchies, generate market messages, and track progress locally on your computer. This tool does not upload user data; all processing is local.
@@ -34,17 +49,6 @@ python MappingManager.py
 ### Working with Sample Maps
 
 Ready-to-use `.json` files live in `CompletedUsableJsonMapFiles/`. Load one via **Load setup** to explore a preset configuration or duplicate it for a new run.
-
-## Testing
-
-Automated tests are not yet provided. For now, rely on manual smoke checks:
-
-1. Load a sample configuration.
-2. Exercise tree editing, undo/redo, and batch pricing.
-3. Generate and copy a market message.
-4. Verify persistence by reopening the saved file.
-
-When contributing new pure-logic helpers, add `pytest` suites under `tests/` so future automation can run `pytest`.
 
 ## Packaging a Windows `.exe`
 
