@@ -1,0 +1,1129 @@
+{
+  "intro_line": "LF Snipers: (Overnight OK)",
+  "regions": [
+    {
+      "id": "759a7f8d-5b38-4e8c-bf2b-4a1e3534dc3f",
+      "type": "region",
+      "name": "Draconic Depths",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "afc9b4fd-4fcd-4643-99f2-6753dd431c47",
+          "type": "subgroup",
+          "name": "Elemental 750+",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 70,
+          "children": [
+            {
+              "id": "77f03595-fe85-46ca-ba89-8d448e72aa52",
+              "type": "enemy",
+              "name": "Mythical Dragon Emperor",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "08b905b4-f0e7-491d-abaf-c7538d530974",
+              "type": "enemy",
+              "name": "Three'amat the Mother of Dragons",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "f744fb21-0aaf-423d-bd53-fa32554a790f",
+              "type": "enemy",
+              "name": "Supremia Magnificus",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "4873eb78-d3fb-4760-a7f6-8f51e9e742dd",
+          "type": "subgroup",
+          "name": "TAM",
+          "include": false,
+          "completed": false,
+          "override_message": "TAM:eec: (re-enter)",
+          "needs_snipe": true,
+          "price": 390,
+          "children": [
+            {
+              "id": "f0949d42-de61-47f3-bd6c-e6e88d317ffc",
+              "type": "enemy",
+              "name": "Tranquilia Protecticus",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": []
+            },
+            {
+              "id": "633d5419-27e9-4664-8530-ed41866a5713",
+              "type": "enemy",
+              "name": "Absolutia Harmonius",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 340,
+              "children": []
+            },
+            {
+              "id": "ab978abb-c37f-4325-b6fa-f73d89f75f8f",
+              "type": "enemy",
+              "name": "Magnatius Majestica",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 100,
+              "children": []
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "04d006c5-682f-4ec1-b5b7-5f01e17c25c2",
+          "type": "subgroup",
+          "name": "Fire 750+",
+          "include": false,
+          "completed": false,
+          "override_message": "Fire 750+ :fire_grub:",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [
+            {
+              "id": "6128945c-46fe-4869-b369-ff8bf18b0d83",
+              "type": "enemy",
+              "name": "Sulfurious the Raging Inferno",
+              "include": true,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "cf6e340f-73e1-4019-b57f-1608391cc3e1",
+              "type": "enemy",
+              "name": "Incendarius the Unquenchable",
+              "include": true,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "33004868-3f9b-4432-8866-5f9aa815fa9c",
+              "type": "enemy",
+              "name": "Combustius Furnaceheart",
+              "include": true,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "1b0518b0-5d65-4085-93d4-49e8a4a737f5",
+          "type": "subgroup",
+          "name": "Ice 750+",
+          "include": false,
+          "completed": false,
+          "override_message": "Ice 750+ :ice_grub:",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [
+            {
+              "id": "00814a88-ee32-4cce-98dc-f1e5053a4be0",
+              "type": "enemy",
+              "name": "Arcticus the Biting Frost",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "01276502-7fab-4b26-b983-bf987d2a0cc4",
+              "type": "enemy",
+              "name": "Avalancheus the Glacial",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "d4066177-9167-4206-b9ba-c76fb9179e75",
+              "type": "enemy",
+              "name": "Chillandria Permafrost",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "99eecf82-9dad-4faa-b134-d86ccfe30eec",
+          "type": "subgroup",
+          "name": "Poison 750+",
+          "include": false,
+          "completed": false,
+          "override_message": "Poison 750+ :poison_grub:",
+          "needs_snipe": false,
+          "price": 35,
+          "children": [
+            {
+              "id": "382f8d69-a0da-4a23-b482-ae826cdca8ec",
+              "type": "enemy",
+              "name": "Corrupticus the Blight Baron",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "a86b5ea1-af18-4de4-a7b0-19d086ff93fc",
+              "type": "enemy",
+              "name": "Pestilentia the Putrid",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "fa5c27bb-05ca-423c-9fa8-9cf75d654beb",
+              "type": "enemy",
+              "name": "Belchazar Banewright",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "5ce6b4ca-95cd-4876-9df9-aa01ad551211",
+          "type": "subgroup",
+          "name": "Fire 0-750(Crematio+Flamina)",
+          "include": false,
+          "completed": false,
+          "override_message": "Fire 0-750(Crematio+Flamina) :fire_grub:",
+          "needs_snipe": true,
+          "price": 100,
+          "children": [
+            {
+              "id": "6b24dbb2-2dd0-4e1c-8e31-3a5dfafe63ac",
+              "type": "enemy",
+              "name": "Crematio",
+              "include": false,
+              "completed": false,
+              "override_message": "Fire 0-750(Crematio) :fire_grub:",
+              "needs_snipe": true,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "aa65518e-f8ee-4308-a120-6f3c1fb13f08",
+              "type": "enemy",
+              "name": "Flamina",
+              "include": false,
+              "completed": false,
+              "override_message": "Fire 0-750(Flamina) :fire_grub:",
+              "needs_snipe": true,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "a5448512-21a3-4aed-b981-1cebf630e979",
+          "type": "subgroup",
+          "name": "Ice 0-750(Rimeus+Frigidocius)",
+          "include": false,
+          "completed": false,
+          "override_message": "Ice 0-750(Rimeus+Frigidocius) :ice_grub:",
+          "needs_snipe": true,
+          "price": 100,
+          "children": [
+            {
+              "id": "8fe64be2-8acb-4d19-b239-9e471dee2e04",
+              "type": "enemy",
+              "name": "Rimeus",
+              "include": false,
+              "completed": false,
+              "override_message": "Ice 0-750(Rimeus) :ice_grub:",
+              "needs_snipe": true,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "bafdb6e0-eba3-4d13-9c03-2af0b3eb7996",
+              "type": "enemy",
+              "name": "Frigidocius",
+              "include": false,
+              "completed": false,
+              "override_message": "Ice 0-750(Frigidocius) :ice_grub:",
+              "needs_snipe": true,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "e5100aaf-fbb3-4443-9590-27cc60016084",
+          "type": "subgroup",
+          "name": "Poison 0-750(Malignus+Venomona)",
+          "include": false,
+          "completed": false,
+          "override_message": "Poison 0-750(Malignus+Venomona) :poison_grub:",
+          "needs_snipe": true,
+          "price": 100,
+          "children": [
+            {
+              "id": "de8c6a1e-225e-4768-aaa7-0d4c4d0520e8",
+              "type": "enemy",
+              "name": "Malignus",
+              "include": false,
+              "completed": false,
+              "override_message": "aPoison 0-750(Malignus) :poison_grub:",
+              "needs_snipe": true,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "8528fc39-4128-4eea-bab4-f4ea28b08e51",
+              "type": "enemy",
+              "name": "Venomona",
+              "include": false,
+              "completed": false,
+              "override_message": "Poison 0-750(Venomona) :poison_grub:",
+              "needs_snipe": true,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "edbbf0e1-b5fd-45f9-9b45-8769e6f958d1",
+          "type": "subgroup",
+          "name": "Surfaces Optionals",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "be9042f0-f87d-4fe4-8e87-1ffe51920a62",
+              "type": "enemy",
+              "name": "Frostnip IceBound-B",
+              "include": false,
+              "completed": false,
+              "override_message": "Frostnip IceBound (Ice Surface)",
+              "needs_snipe": false,
+              "price": 30,
+              "children": []
+            },
+            {
+              "id": "42bcc1fc-958e-4a60-9f97-82d6a7f9d6f2",
+              "type": "enemy",
+              "name": "Blizzara Winterosa-B",
+              "include": false,
+              "completed": false,
+              "override_message": "Blizzara Winterosa (Ice Surface)",
+              "needs_snipe": false,
+              "price": 30,
+              "children": []
+            },
+            {
+              "id": "40256e8c-08b1-44f9-971a-c0dc75ed52f2",
+              "type": "enemy",
+              "name": "Iciclesius the Defender-B",
+              "include": false,
+              "completed": false,
+              "override_message": "Iciclesious the Defender (Ice Surface)",
+              "needs_snipe": false,
+              "price": 30,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "073f4f1c-18c8-4574-8d83-5556f47f24b6",
+              "type": "enemy",
+              "name": "Squire Sizzleton-R",
+              "include": false,
+              "completed": false,
+              "override_message": "Squire Sizzleton (Fire Surface)",
+              "needs_snipe": false,
+              "price": 30,
+              "children": []
+            },
+            {
+              "id": "c93071b5-24ef-4369-90a5-74d6b5a57abf",
+              "type": "enemy",
+              "name": "Torchbearer Tinderhelm-R",
+              "include": false,
+              "completed": false,
+              "override_message": "Torchbearer Tinderhelm (Fire Surface)",
+              "needs_snipe": false,
+              "price": 30,
+              "children": []
+            },
+            {
+              "id": "0c1827dd-3419-4d09-929c-3cb344f2485f",
+              "type": "enemy",
+              "name": "Colonel Crisp-R",
+              "include": false,
+              "completed": false,
+              "override_message": "Colonel Crisp (Fire Surface)",
+              "needs_snipe": false,
+              "price": 30,
+              "children": []
+            },
+            {
+              "id": "cb24d502-9f05-49ab-abeb-ed8dc6aa9d67",
+              "type": "enemy",
+              "name": "Goopus Dredgemore-G",
+              "include": false,
+              "completed": false,
+              "override_message": "Goopus Dredgemore (Prison Surface)",
+              "needs_snipe": false,
+              "price": 30,
+              "children": []
+            },
+            {
+              "id": "244de056-5ac7-4f9c-a766-28eec9de1a3e",
+              "type": "enemy",
+              "name": "Noxio Sludgewell-G",
+              "include": false,
+              "completed": false,
+              "override_message": "Noxio Sludgewell (Prison Surface)",
+              "needs_snipe": false,
+              "price": 30,
+              "children": []
+            },
+            {
+              "id": "74e4cce1-1d11-467f-ac8d-4dc5045dde62",
+              "type": "enemy",
+              "name": "Dreak Grimehaven-G",
+              "include": false,
+              "completed": false,
+              "override_message": "Dreak Grimehaven (Prison Surface)",
+              "needs_snipe": false,
+              "price": 30,
+              "children": []
+            }
+          ],
+          "must_contains_all": true,
+          "auto_collapse": false
+        }
+      ],
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "d1229f76-4052-4827-b8f2-369e49902e3f",
+      "type": "region",
+      "name": "Moussu Picchu",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "f57c9c1a-ba0b-483d-936d-eb100e4b1274",
+          "type": "subgroup",
+          "name": "Wild Cards",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "957ae13d-579d-440b-85af-9fe5dca24416",
+              "type": "enemy",
+              "name": "Ful'Mina the Mountain Queen",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 3,
+              "children": []
+            },
+            {
+              "id": "3844828a-0795-4d6d-8353-8f6f9d13b9cb",
+              "type": "enemy",
+              "name": "⚡Thunderlord⚡",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 30,
+              "children": [],
+              "sidenotes": "Rain med"
+            },
+            {
+              "id": "b9fade49-ba85-4c96-833a-f0d4a1b9832b",
+              "type": "enemy",
+              "name": "Violet Stormchild",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 35,
+              "children": [],
+              "sidenotes": "Rain low"
+            },
+            {
+              "id": "c9b54d32-bdab-41f0-a05a-3b37d06e9427",
+              "type": "enemy",
+              "name": "Thunder Strike",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 25,
+              "children": [],
+              "sidenotes": "Rain low"
+            },
+            {
+              "id": "c5ec3325-975e-4791-b90d-9edff7ca15bf",
+              "type": "enemy",
+              "name": "Thundering Watcher",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": []
+            }
+          ],
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "62ecf841-3f84-4105-b4b1-b36ceb240403",
+          "type": "subgroup",
+          "name": "Dragoon and Friends",
+          "include": false,
+          "completed": false,
+          "override_message": "Dragoon nf",
+          "needs_snipe": true,
+          "price": 360,
+          "children": [],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        }
+      ],
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "08ae9439-f176-46af-bb67-ddace0ae82d7",
+      "type": "region",
+      "name": "Queso Geyser",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "ad926353-e38c-4d38-ab4d-3ba8f8c09d62",
+          "type": "subgroup",
+          "name": "Corky and friends",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 310,
+          "children": [
+            {
+              "id": "cd595a8a-0301-49e3-9b3a-20183aca981f",
+              "type": "enemy",
+              "name": "Corky the Collector",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "c7c107a9-4d2f-4c70-bc78-6c0a5bceeba3",
+              "type": "enemy",
+              "name": "Rambunctious Rain Rumbler",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "e94c4a3f-5015-436a-a0c2-4ea7d8272373",
+              "type": "enemy",
+              "name": "Horned Cork Hoarder",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "1ab53635-826f-44cb-aed3-e44345481300",
+              "type": "enemy",
+              "name": "Burly Bruiser",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "3cc808ef-f62e-4c84-acd8-69827cf824f9",
+              "type": "enemy",
+              "name": "Cork Defender",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "2854c64d-63c7-48f2-a8e1-30c74e9d3191",
+              "type": "enemy",
+              "name": "Fuzzy Drake",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "c849871a-91f2-4a78-98d1-bb45b7473582",
+          "type": "subgroup",
+          "name": "Pressure Builders",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "0b2b79a0-3646-44b8-bf57-41f540cce113",
+              "type": "enemy",
+              "name": "Emberstone Scaled",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 110,
+              "children": []
+            },
+            {
+              "id": "59f202e5-6fc2-4ce0-bf87-4305b9d880ce",
+              "type": "enemy",
+              "name": "Pyrehyde",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 25,
+              "children": []
+            },
+            {
+              "id": "7e40affc-5a3d-4c7c-a234-8a6e3f45c035",
+              "type": "enemy",
+              "name": "Vaporior",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 20,
+              "children": []
+            },
+            {
+              "id": "15be3ddb-419e-4d52-8518-1ebbdbded96d",
+              "type": "enemy",
+              "name": "Warming Wyvern",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": []
+            },
+            {
+              "id": "94215c8a-745b-41db-bc69-75815837e7cf",
+              "type": "enemy",
+              "name": "Steam Sailor",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": []
+            }
+          ],
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "66d0dd9a-0124-4a92-9744-c7a76aa1b8e1",
+          "type": "subgroup",
+          "name": "Geyser Hunters",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "b93eed74-89d7-4704-af6c-022812ca57e7",
+              "type": "enemy",
+              "name": "Kalor'ignis",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 10,
+              "children": []
+            },
+            {
+              "id": "86bb71e6-d3b5-4966-96fe-34c87eda15f9",
+              "type": "enemy",
+              "name": "Stormsurge",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "(epic)"
+            },
+            {
+              "id": "d2b09d08-0b3a-40cc-8609-3637fa19c923",
+              "type": "enemy",
+              "name": "Bruticus",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 25,
+              "children": [],
+              "sidenotes": "(small,large,medium,epic)Flamin = 25%AR"
+            },
+            {
+              "id": "4f2d8bf9-10ed-4222-a475-495bf1409f41",
+              "type": "enemy",
+              "name": "Cinderstorm",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": "(large)Hot Or Flamin Queso"
+            },
+            {
+              "id": "86bd8cce-f6aa-4e07-bcab-52f2a5bd7a00",
+              "type": "enemy",
+              "name": "Ignatia",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": "(epic,medium,large,small)HoT Queso"
+            },
+            {
+              "id": "ea457c3d-450c-4078-8031-fedd462f9331",
+              "type": "enemy",
+              "name": "Bearded Elder",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": "(medium)Hot Queso or above = 48.6+; Mild Queso = 18%AR"
+            },
+            {
+              "id": "679950c1-9ae8-45f0-a642-e504797ad8aa",
+              "type": "enemy",
+              "name": "Smoldersnap",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": "(small,medium,large,epic)Medium Queso"
+            },
+            {
+              "id": "7febdaba-13c9-46b6-87ea-ea45baabd5fb",
+              "type": "enemy",
+              "name": "Sizzle Pup",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": "(small)all have 48% AR, can do Mild Queso"
+            },
+            {
+              "id": "9ac5c09d-92c7-4af4-9b26-abf59fab5bb8",
+              "type": "enemy",
+              "name": "Mild Spicekin",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": "(All)[mid queso=highest AR]"
+            }
+          ],
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "2e264fcc-1cc5-4f76-918b-cfbdc56c8a3b",
+          "type": "enemy",
+          "name": "Corkataur",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 10,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "9adfe627-5edd-43d3-a6f7-297a9a516564",
+      "type": "region",
+      "name": "Floating Islands",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "30a57bef-e731-483b-a7c2-18eac69c637b",
+          "type": "subgroup",
+          "name": "Dragon Paragon and Friends",
+          "include": false,
+          "completed": false,
+          "override_message": "Dragon Pnf :draconic:",
+          "needs_snipe": true,
+          "price": 125,
+          "children": [
+            {
+              "id": "0536ef92-3865-420c-8847-b08d30cbd0d8",
+              "type": "enemy",
+              "name": "Paragon of Dragons",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "6dbbc9fb-6172-463b-9301-9cd4a9b87ba3",
+              "type": "enemy",
+              "name": "Regal Spearman",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "03a66c91-d698-4bd2-a0e5-0479bad39d43",
+              "type": "enemy",
+              "name": "Dragonbreather",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "056d699f-6581-4807-b8a7-5179d893bd52",
+              "type": "enemy",
+              "name": "Lancer Guard",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "f45b2445-3838-4c90-897e-dad711f3bf1d",
+              "type": "enemy",
+              "name": "Tiny Dragonfly",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "9bb114a0-6ae8-46dd-a4a7-8a53d7c8e9f5",
+          "type": "subgroup",
+          "name": "Empyrean Javelineer",
+          "include": false,
+          "completed": false,
+          "override_message": "Javelineer",
+          "needs_snipe": true,
+          "price": 20,
+          "children": [],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        }
+      ],
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "0ea7cfa6-206f-4d90-9acb-b723c81393e3",
+      "type": "region",
+      "name": "Fiery Warpath",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "089f5bcd-4024-4ae4-a3e1-90f082916ca6",
+          "type": "enemy",
+          "name": "Gargantuamouse",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 70,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "907c9530-0ee7-49b4-9343-cdcc362b4952",
+      "type": "region",
+      "name": "Iceberg",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "0cd184aa-cd98-4c52-84b5-416cc60bb4b9",
+          "type": "enemy",
+          "name": "Icewing",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 480,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "3e5274f2-ffb9-4a87-9933-9b4122510293",
+      "type": "region",
+      "name": "Dracano",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "1d259085-9f7a-4fbc-bc43-f2d9cc7b7b31",
+          "type": "subgroup",
+          "name": "Dragon/Warden/Whelping",
+          "include": true,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 45,
+          "children": [
+            {
+              "id": "757e80f3-8ad3-4978-a5f5-ddde1b2530c8",
+              "type": "enemy",
+              "name": "Dragon",
+              "include": true,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "0d13821c-7a70-4b4e-a82e-e66ffeb7a9a0",
+              "type": "enemy",
+              "name": "Draconic Warden",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "5abca395-403d-4073-8bb9-d128bd9a59fc",
+              "type": "enemy",
+              "name": "Whelpling",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "must_contains_all": true,
+          "auto_collapse": false,
+          "sidenotes": ""
+        }
+      ],
+      "must_contains_all": true,
+      "auto_collapse": false
+    }
+  ],
+  "search_prefix": "in:\n map-snipers",
+  "search_copy_word_count": 1,
+  "thankyou_text": "Invited and paid, Thank you!"
+}
