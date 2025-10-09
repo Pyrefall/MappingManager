@@ -19,7 +19,7 @@
           "completed": false,
           "override_message": "",
           "needs_snipe": true,
-          "price": 70,
+          "price": 58,
           "children": [
             {
               "id": "77f03595-fe85-46ca-ba89-8d448e72aa52",
@@ -68,9 +68,9 @@
           "name": "TAM",
           "include": false,
           "completed": false,
-          "override_message": "TAM:eec: (re-enter)",
+          "override_message": "TAM :eec:",
           "needs_snipe": true,
-          "price": 390,
+          "price": 355,
           "children": [
             {
               "id": "f0949d42-de61-47f3-bd6c-e6e88d317ffc",
@@ -124,7 +124,7 @@
               "id": "6128945c-46fe-4869-b369-ff8bf18b0d83",
               "type": "enemy",
               "name": "Sulfurious the Raging Inferno",
-              "include": true,
+              "include": false,
               "completed": false,
               "override_message": "",
               "needs_snipe": false,
@@ -136,7 +136,7 @@
               "id": "cf6e340f-73e1-4019-b57f-1608391cc3e1",
               "type": "enemy",
               "name": "Incendarius the Unquenchable",
-              "include": true,
+              "include": false,
               "completed": false,
               "override_message": "",
               "needs_snipe": false,
@@ -148,7 +148,7 @@
               "id": "33004868-3f9b-4432-8866-5f9aa815fa9c",
               "type": "enemy",
               "name": "Combustius Furnaceheart",
-              "include": true,
+              "include": false,
               "completed": false,
               "override_message": "",
               "needs_snipe": false,
@@ -219,8 +219,8 @@
           "include": false,
           "completed": false,
           "override_message": "Poison 750+ :poison_grub:",
-          "needs_snipe": false,
-          "price": 35,
+          "needs_snipe": true,
+          "price": 20,
           "children": [
             {
               "id": "382f8d69-a0da-4a23-b482-ae826cdca8ec",
@@ -281,7 +281,7 @@
               "completed": false,
               "override_message": "Fire 0-750(Crematio) :fire_grub:",
               "needs_snipe": true,
-              "price": 60,
+              "price": 48,
               "children": [],
               "sidenotes": ""
             },
@@ -309,7 +309,7 @@
           "include": false,
           "completed": false,
           "override_message": "Ice 0-750(Rimeus+Frigidocius) :ice_grub:",
-          "needs_snipe": true,
+          "needs_snipe": false,
           "price": 100,
           "children": [
             {
@@ -510,76 +510,62 @@
       "price": 0,
       "children": [
         {
-          "id": "f57c9c1a-ba0b-483d-936d-eb100e4b1274",
-          "type": "subgroup",
-          "name": "Wild Cards",
+          "id": "957ae13d-579d-440b-85af-9fe5dca24416",
+          "type": "enemy",
+          "name": "Ful'Mina the Mountain Queen",
           "include": false,
           "completed": false,
           "override_message": "",
           "needs_snipe": false,
-          "price": 0,
-          "children": [
-            {
-              "id": "957ae13d-579d-440b-85af-9fe5dca24416",
-              "type": "enemy",
-              "name": "Ful'Mina the Mountain Queen",
-              "include": false,
-              "completed": false,
-              "override_message": "",
-              "needs_snipe": false,
-              "price": 3,
-              "children": []
-            },
-            {
-              "id": "3844828a-0795-4d6d-8353-8f6f9d13b9cb",
-              "type": "enemy",
-              "name": "⚡Thunderlord⚡",
-              "include": false,
-              "completed": false,
-              "override_message": "",
-              "needs_snipe": true,
-              "price": 30,
-              "children": [],
-              "sidenotes": "Rain med"
-            },
-            {
-              "id": "b9fade49-ba85-4c96-833a-f0d4a1b9832b",
-              "type": "enemy",
-              "name": "Violet Stormchild",
-              "include": false,
-              "completed": false,
-              "override_message": "",
-              "needs_snipe": true,
-              "price": 35,
-              "children": [],
-              "sidenotes": "Rain low"
-            },
-            {
-              "id": "c9b54d32-bdab-41f0-a05a-3b37d06e9427",
-              "type": "enemy",
-              "name": "Thunder Strike",
-              "include": false,
-              "completed": false,
-              "override_message": "",
-              "needs_snipe": true,
-              "price": 25,
-              "children": [],
-              "sidenotes": "Rain low"
-            },
-            {
-              "id": "c5ec3325-975e-4791-b90d-9edff7ca15bf",
-              "type": "enemy",
-              "name": "Thundering Watcher",
-              "include": false,
-              "completed": false,
-              "override_message": "",
-              "needs_snipe": false,
-              "price": 40,
-              "children": []
-            }
-          ],
-          "must_contains_all": true,
-          "auto_collapse": false
+          "price": 3,
+          "children": []
+        },
+        {
+          "id": "3844828a-0795-4d6d-8353-8f6f9d13b9cb",
+          "type": "enemy",
+          "name": "⚡Thunderlord⚡",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 22,
+          "children": [],
+          "sidenotes": "Rain med"
+        },
+        {
+          "id": "b9fade49-ba85-4c96-833a-f0d4a1b9832b",
+          "type": "enemy",
+          "name": "Violet Stormchild",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 22,
+          "children": [],
+          "sidenotes": "Rain low"
+        },
+        {
+          "id": "c9b54d32-bdab-41f0-a05a-3b37d06e9427",
+          "type": "enemy",
+          "name": "Thunder Strike",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 17,
+          "children": [],
+          "sidenotes": "Rain low"
+        },
+        {
+          "id": "c5ec3325-975e-4791-b90d-9edff7ca15bf",
+          "type": "enemy",
+          "name": "Thundering Watcher",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 40,
+          "children": []
         },
         {
           "id": "62ecf841-3f84-4105-b4b1-b36ceb240403",
@@ -589,7 +575,7 @@
           "completed": false,
           "override_message": "Dragoon nf",
           "needs_snipe": true,
-          "price": 360,
+          "price": 310,
           "children": [],
           "sidenotes": "",
           "must_contains_all": true,
@@ -617,7 +603,7 @@
           "completed": false,
           "override_message": "",
           "needs_snipe": true,
-          "price": 310,
+          "price": 290,
           "children": [
             {
               "id": "cd595a8a-0301-49e3-9b3a-20183aca981f",
@@ -713,8 +699,8 @@
               "include": false,
               "completed": false,
               "override_message": "",
-              "needs_snipe": false,
-              "price": 110,
+              "needs_snipe": true,
+              "price": 90,
               "children": []
             },
             {
@@ -735,8 +721,8 @@
               "include": false,
               "completed": false,
               "override_message": "",
-              "needs_snipe": false,
-              "price": 20,
+              "needs_snipe": true,
+              "price": 12,
               "children": []
             },
             {
@@ -782,7 +768,7 @@
               "include": false,
               "completed": false,
               "override_message": "",
-              "needs_snipe": true,
+              "needs_snipe": false,
               "price": 10,
               "children": []
             },
@@ -793,7 +779,7 @@
               "include": false,
               "completed": false,
               "override_message": "",
-              "needs_snipe": true,
+              "needs_snipe": false,
               "price": 20,
               "children": [],
               "sidenotes": "(epic)"
@@ -920,7 +906,7 @@
           "include": false,
           "completed": false,
           "override_message": "Dragon Pnf :draconic:",
-          "needs_snipe": true,
+          "needs_snipe": false,
           "price": 125,
           "children": [
             {
@@ -996,7 +982,7 @@
           "completed": false,
           "override_message": "Javelineer",
           "needs_snipe": true,
-          "price": 20,
+          "price": 12,
           "children": [],
           "sidenotes": "",
           "must_contains_all": true,
@@ -1024,7 +1010,7 @@
           "completed": false,
           "override_message": "",
           "needs_snipe": true,
-          "price": 70,
+          "price": 75,
           "children": [],
           "sidenotes": ""
         }
@@ -1049,8 +1035,8 @@
           "include": false,
           "completed": false,
           "override_message": "",
-          "needs_snipe": true,
-          "price": 480,
+          "needs_snipe": false,
+          "price": 450,
           "children": [],
           "sidenotes": ""
         }
@@ -1072,17 +1058,17 @@
           "id": "1d259085-9f7a-4fbc-bc43-f2d9cc7b7b31",
           "type": "subgroup",
           "name": "Dragon/Warden/Whelping",
-          "include": true,
+          "include": false,
           "completed": false,
           "override_message": "",
-          "needs_snipe": true,
+          "needs_snipe": false,
           "price": 45,
           "children": [
             {
               "id": "757e80f3-8ad3-4978-a5f5-ddde1b2530c8",
               "type": "enemy",
               "name": "Dragon",
-              "include": true,
+              "include": false,
               "completed": false,
               "override_message": "",
               "needs_snipe": false,
@@ -1115,8 +1101,8 @@
               "sidenotes": ""
             }
           ],
-          "must_contains_all": true,
-          "auto_collapse": false,
+          "must_contains_all": false,
+          "auto_collapse": true,
           "sidenotes": ""
         }
       ],
