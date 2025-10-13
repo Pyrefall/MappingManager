@@ -482,13 +482,14 @@
             {
               "id": "74e4cce1-1d11-467f-ac8d-4dc5045dde62",
               "type": "enemy",
-              "name": "Dreak Grimehaven-G",
+              "name": "Dreck Grimehaven-G",
               "include": false,
               "completed": false,
-              "override_message": "Dreak Grimehaven (Prison Surface)",
+              "override_message": "Dreck Grimehaven (Prison Surface)",
               "needs_snipe": false,
               "price": 30,
-              "children": []
+              "children": [],
+              "sidenotes": ""
             }
           ],
           "must_contains_all": true,
