@@ -3,11 +3,10 @@ from __future__ import annotations
 import copy
 import json
 import os
-import shutil
-import subprocess
-import sys
+import random
+from functools import wraps
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Callable, Dict, List, Optional, Tuple
 
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
@@ -18,7 +17,10 @@ from .constants import (
     HELP_TEXT,
     PRICE_STEP,
     THANKYOU_TEXT,
+    DEFAULT_THANKYOU_MESSAGES,
+    DEFAULT_MESSAGE_FORMATS,
 )
+from .audio import audio_manager
 from .models import (
     default_node,
     deep_delete,
@@ -48,13 +50,26 @@ class MappingManagerApp(tk.Tk):
         self._import_preview_window = None
 
         # Current in-memory data
-        self.data: Dict = {
+        default_thanks_payload = [
+            {"text": msg, "enabled": True} for msg in DEFAULT_THANKYOU_MESSAGES
+        ]
+        self.data: Dict[str, Any] = {
             "intro_line": "LF Snipers: (Overnight OK)",
             "regions": [],
             "search_prefix": DEFAULT_SEARCH_PREFIX,
-            "thankyou_text": THANKYOU_TEXT,
+            "thankyou_messages": self._normalize_thankyou_messages(
+                default_thanks_payload, THANKYOU_TEXT
+            ),
+            "message_formats": DEFAULT_MESSAGE_FORMATS[:],
+            "selected_message_format": DEFAULT_MESSAGE_FORMATS[0],
+            "auto_round_prices": False,
+            "sound_enabled": True,
+            "sound_volume": 0.25,
             "search_copy_word_count": 1,
         }
+        self.data["thankyou_text"] = self.data["thankyou_messages"][0]["text"]
+        self.data["selected_message_format"] = self._selected_message_format()
+        self._update_audio_config()
         self.current_file: Optional[str] = None
         self.var_search_word_count = tk.IntVar(
             value=self._sanitize_word_count(self.data.get("search_copy_word_count", 1))
@@ -89,20 +104,20 @@ class MappingManagerApp(tk.Tk):
         self.var_intro = tk.StringVar(value=self.data["intro_line"])
         self.var_search_prefix = tk.StringVar(value=self.data.get("search_prefix", DEFAULT_SEARCH_PREFIX))
 
-        ttk.Button(bar, text="Important User Settings",
-                   command=self.show_important_msg_settings).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="User Guide", command=self.show_help_window).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="Load setup", command=self.on_open).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="Import ingame status",
-                   command=self.on_paste_import).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="New setup", command=self.on_new_setup).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="Save as", command=self.on_save_as).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="Reset this run", command=self.on_reset_run).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="Undo", command=self.on_undo).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="Redo", command=self.on_redo).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="Generate market message and copy",
-                   command=lambda: self.on_generate_message(auto_copy=True)).pack(side=tk.LEFT, padx=4)
-        ttk.Button(bar, text="Save current setup", command=self.on_save).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="Important User Settings",
+                     command=self.show_important_msg_settings).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="User Guide", command=self.show_help_window).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="Load setup", command=self.on_open).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="Import ingame status",
+                     command=self.on_paste_import, play_sound=False).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="New setup", command=self.on_new_setup).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="Save as", command=self.on_save_as).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="Reset this run", command=self.on_reset_run).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="Undo", command=self.on_undo).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="Redo", command=self.on_redo).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="Generate market message and copy",
+                     command=lambda: self.on_generate_message(auto_copy=True), play_sound=False).pack(side=tk.LEFT, padx=4)
+        self._button(bar, text="Save current setup", command=self.on_save).pack(side=tk.LEFT, padx=4)
 
     def _build_main_panes(self):
         """Split UI into left (tree) and right (editor + output)."""
@@ -123,12 +138,12 @@ class MappingManagerApp(tk.Tk):
         # Toolbar
         tb = ttk.Frame(parent)
         tb.pack(side=tk.TOP, fill=tk.X, pady=(0, 8))
-        ttk.Button(tb, text="+ Region", command=self.on_add_region).pack(side=tk.LEFT, padx=2)
-        ttk.Button(tb, text="+ Subgroup", command=self.on_add_subgroup).pack(side=tk.LEFT, padx=2)
-        ttk.Button(tb, text="+ Enemy", command=self.on_add_enemy).pack(side=tk.LEFT, padx=2)
-        ttk.Button(tb, text="Delete selected", command=self.on_delete_selected).pack(side=tk.LEFT, padx=2)
-        ttk.Button(tb, text="Open all tabs", command=self.open_all_tabs).pack(side=tk.LEFT, padx=2)
-        ttk.Button(tb, text="Close all tabs", command=self.close_all_tabs).pack(side=tk.LEFT, padx=2)
+        self._button(tb, text="+ Region", command=self.on_add_region).pack(side=tk.LEFT, padx=2)
+        self._button(tb, text="+ Subgroup", command=self.on_add_subgroup).pack(side=tk.LEFT, padx=2)
+        self._button(tb, text="+ Enemy", command=self.on_add_enemy).pack(side=tk.LEFT, padx=2)
+        self._button(tb, text="Delete selected", command=self.on_delete_selected).pack(side=tk.LEFT, padx=2)
+        self._button(tb, text="Open all tabs", command=self.open_all_tabs).pack(side=tk.LEFT, padx=2)
+        self._button(tb, text="Close all tabs", command=self.close_all_tabs).pack(side=tk.LEFT, padx=2)
 
         # Tree
         cols = ("needs_snipe", "include", "completed", "price", "type")
@@ -189,10 +204,10 @@ class MappingManagerApp(tk.Tk):
 
         price_btns = ttk.Frame(editor)
         price_btns.grid(row=2, column=3, sticky="w")
-        ttk.Button(price_btns, text="−", width=3, command=lambda: self._bump_price(-PRICE_STEP)).pack(side=tk.LEFT,
-                                                                                                      padx=1)
-        ttk.Button(price_btns, text="+", width=3, command=lambda: self._bump_price(+PRICE_STEP)).pack(side=tk.LEFT,
-                                                                                                      padx=1)
+        self._button(price_btns, text="−", width=3,
+                     command=lambda: self._bump_price(-PRICE_STEP)).pack(side=tk.LEFT, padx=1)
+        self._button(price_btns, text="+", width=3,
+                     command=lambda: self._bump_price(+PRICE_STEP)).pack(side=tk.LEFT, padx=1)
         ttk.Label(editor, text="Side notes (optional):").grid(row=3, column=0, sticky="nw")
         self.txt_sidenotes = tk.Text(editor, height=3, wrap="word")
         self.txt_sidenotes.grid(row=3, column=1, columnspan=3, sticky="we", padx=6, pady=4)
@@ -214,7 +229,7 @@ class MappingManagerApp(tk.Tk):
         )
         self.chk_subgroup_auto_collapse.pack(side=tk.LEFT)
 
-        ttk.Button(editor, text="Apply changes to selected", command=self.apply_to_selected) \
+        self._button(editor, text="Apply changes to selected", command=self.apply_to_selected) \
             .grid(row=5, column=0, columnspan=4, sticky="w", padx=6, pady=(6, 4))
 
         for c in range(4):
@@ -252,10 +267,10 @@ class MappingManagerApp(tk.Tk):
 
         btn_row = ttk.Frame(lf_msg)
         btn_row.pack(side=tk.TOP, fill=tk.X, pady=(6, 0))
-        ttk.Button(btn_row, text="Copy",
-                   command=lambda: self.copy_message(update_first=True)).pack(side=tk.LEFT)
-        ttk.Button(btn_row, text="Increase", command=self.on_increase_price).pack(side=tk.RIGHT, padx=4)
-        ttk.Button(btn_row, text="Decrease", command=self.on_decrease_price).pack(side=tk.RIGHT, padx=4)
+        self._button(btn_row, text="Copy",
+                     command=lambda: self.copy_message(update_first=True), play_sound=False).pack(side=tk.LEFT)
+        self._button(btn_row, text="Increase", command=self.on_increase_price).pack(side=tk.RIGHT, padx=4)
+        self._button(btn_row, text="Decrease", command=self.on_decrease_price).pack(side=tk.RIGHT, padx=4)
 
         # Right: Todo List
         lf_todo = ttk.LabelFrame(two_col, text="Todo List (Double Click To Complete)", padding=(8, 8))
@@ -396,7 +411,7 @@ class MappingManagerApp(tk.Tk):
             to_copy = f"{prefix} {snippet}"
 
             self._copy_text(to_copy)
-            self._play_success()
+            self._play_sound("copy_message")
             self._flash_title("Copied market search message")
             self._select_tree_node_by_id(node_id)
 
@@ -438,6 +453,7 @@ class MappingManagerApp(tk.Tk):
             self.update_totals()
             self.on_generate_message(auto_copy=False)
             self._copy_text(self._thankyou_text())
+            self._play_sound("completion")
 
             self._flash_title(f"Completed: {display_name}")
             self._select_tree_node_by_id(node_id)
@@ -490,6 +506,7 @@ class MappingManagerApp(tk.Tk):
             self.update_totals()
             self.on_generate_message(auto_copy=False)
             self._copy_text(self._thankyou_text())
+            self._play_sound("completion")
 
             self._flash_title(f"Completed: {name}")
             try:
@@ -511,8 +528,193 @@ class MappingManagerApp(tk.Tk):
             return f"{APP_TITLE} — {os.path.basename(self.current_file)}"
         return APP_TITLE
 
+    def _normalize_thankyou_messages(
+        self,
+        messages: Optional[List[Any]] = None,
+        fallback: Optional[str] = None,
+    ) -> List[Dict[str, Any]]:
+        normalized: List[Dict[str, Any]] = []
+        if isinstance(messages, list):
+            for entry in messages:
+                if isinstance(entry, str):
+                    text = entry.strip()
+                    if text:
+                        normalized.append({"text": text, "enabled": True})
+                    continue
+                if isinstance(entry, dict):
+                    text = (entry.get("text") or entry.get("message") or "").strip()
+                    if text:
+                        normalized.append(
+                            {"text": text, "enabled": bool(entry.get("enabled", True))}
+                        )
+        if not normalized:
+            seed = (fallback or THANKYOU_TEXT).strip() or THANKYOU_TEXT
+            normalized = [{"text": seed, "enabled": True}]
+        return normalized
+
+    def _thankyou_messages(self) -> List[Dict[str, Any]]:
+        messages = self.data.get("thankyou_messages")
+        fallback = self.data.get("thankyou_text", THANKYOU_TEXT)
+        normalized = self._normalize_thankyou_messages(messages, fallback)
+        self.data["thankyou_messages"] = normalized
+        self.data["thankyou_text"] = normalized[0]["text"]
+        return normalized
+
     def _thankyou_text(self) -> str:
-        return (self.data.get("thankyou_text") or THANKYOU_TEXT)
+        messages = self._thankyou_messages()
+        enabled = [m["text"] for m in messages if m.get("enabled", True) and m.get("text")]
+        if not enabled and messages:
+            enabled = [messages[0]["text"]]
+        if not enabled:
+            enabled = [THANKYOU_TEXT]
+        return random.choice(enabled)
+
+    def _should_round_prices(self) -> bool:
+        return bool(self.data.get("auto_round_prices", False))
+
+    @staticmethod
+    def _round_price_for_copy(price: int) -> int:
+        try:
+            value = int(price)
+        except (TypeError, ValueError):
+            value = 0
+        if value < 5:
+            return 5
+        remainder = value % 5
+        if remainder in (1, 2):
+            return value - remainder
+        if remainder == 4:
+            return value + (5 - remainder)
+        return value
+
+    def _normalize_message_formats(self, formats: Optional[List[Any]] = None) -> List[str]:
+        normalized: List[str] = []
+        if isinstance(formats, list):
+            for entry in formats:
+                text: str = ""
+                if isinstance(entry, str):
+                    text = entry.strip()
+                elif isinstance(entry, dict):
+                    text = (entry.get("text") or entry.get("format") or "").strip()
+                if text and text not in normalized:
+                    normalized.append(text)
+        if not normalized:
+            normalized = DEFAULT_MESSAGE_FORMATS[:]
+        return normalized
+
+    def _message_formats(self) -> List[str]:
+        formats = self._normalize_message_formats(self.data.get("message_formats"))
+        self.data["message_formats"] = formats
+        selected = self.data.get("selected_message_format")
+        if selected not in formats:
+            selected = formats[0]
+            self.data["selected_message_format"] = selected
+        return formats
+
+    def _selected_message_format(self) -> str:
+        formats = self._message_formats()
+        selected = self.data.get("selected_message_format")
+        if selected not in formats:
+            selected = formats[0]
+            self.data["selected_message_format"] = selected
+        return selected
+
+    def _format_entry_line(
+        self, name: str, price: int, apply_rounding: bool = False
+    ) -> str:
+        fmt = self._selected_message_format()
+        display_name = (name or "").strip() or "?"
+        try:
+            price_value = int(price)
+        except (TypeError, ValueError):
+            price_value = 0
+        out_price = (
+            self._round_price_for_copy(price_value) if apply_rounding else price_value
+        )
+        if "<name>" not in fmt or "<price>" not in fmt:
+            fmt = "<name>: <price>"
+        result = fmt.replace("<name>", display_name).replace("<price>", str(out_price))
+        return result
+
+    def _generated_message_lines(self, apply_rounding: bool = False) -> List[str]:
+        lines: List[str] = []
+        intro = (self.var_intro.get() or "").strip()
+        if intro:
+            lines.append(intro)
+
+        if not hasattr(self, "_msg_items_data"):
+            return lines
+
+        use_rounding = apply_rounding and self._should_round_prices()
+
+        for price, name, _ in self._msg_items_data:
+            lines.append(
+                self._format_entry_line(name, price, apply_rounding=use_rounding)
+            )
+        return lines
+
+    def _normalize_volume(self, value) -> float:
+        try:
+            vol = float(value)
+        except (TypeError, ValueError, tk.TclError):
+            vol = 0.25
+        return max(0.0, min(1.0, vol))
+
+    def _sound_volume(self) -> float:
+        vol = self._normalize_volume(self.data.get("sound_volume", 0.25))
+        self.data["sound_volume"] = vol
+        return vol
+
+    def _sound_volume_percent(self) -> int:
+        return int(round(self._sound_volume() * 100))
+
+    def _update_audio_config(self) -> None:
+        sound_enabled = bool(self.data.get("sound_enabled", True))
+        volume = self._sound_volume()
+        audio_manager.configure(sound_enabled, volume)
+        audio_manager.ensure_loaded()
+
+    def _play_sound(self, cue: str) -> None:
+        try:
+            audio_manager.play(cue)
+        except Exception:
+            pass
+
+    def _wrap_button_command(self, func: Callable, play_sound: bool) -> Callable:
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            if play_sound:
+                self._play_sound("button_click")
+            return func(*args, **kwargs)
+
+        return wrapper
+
+    def _button(self, parent: tk.Widget, play_sound: bool = True, **kwargs) -> ttk.Button:
+        command = kwargs.get("command")
+        if command is not None:
+            kwargs["command"] = self._wrap_button_command(command, play_sound)
+        return ttk.Button(parent, **kwargs)
+
+    def _center_child_window(self, window: tk.Toplevel, width: int, height: int) -> None:
+        """Place child window centered over the main app without querying screen resolution."""
+        try:
+            self.update_idletasks()
+            window.update_idletasks()
+        except Exception:
+            pass
+
+        parent_w = max(self.winfo_width(), 1)
+        parent_h = max(self.winfo_height(), 1)
+        parent_x = self.winfo_rootx()
+        parent_y = self.winfo_rooty()
+
+        if parent_w <= 1 or parent_h <= 1:
+            parent_w = max(window.winfo_reqwidth(), width)
+            parent_h = max(window.winfo_reqheight(), height)
+
+        x = parent_x + max((parent_w - width) // 2, 0)
+        y = parent_y + max((parent_h - height) // 2, 0)
+        window.geometry(f"{width}x{height}+{x}+{y}")
 
     def _flash_title(self, msg: str, duration: int = 1500):
         try:
@@ -732,7 +934,7 @@ class MappingManagerApp(tk.Tk):
                 self._refresh_row(iid, node)
                 self.update_totals()
                 self.on_generate_message(auto_copy=False)
-                self._play_success()
+                self._play_sound("toggle_state")
                 return  # Already handled; nothing else to do
 
             # --- Click “Need?” column: toggle include ---
@@ -748,7 +950,7 @@ class MappingManagerApp(tk.Tk):
                 self._refresh_row(iid, node)
                 self.update_totals()
                 self.on_generate_message(auto_copy=False)
-                self._play_success()
+                self._play_sound("toggle_state")
                 return
 
             # No action for other columns or blank areas
@@ -979,10 +1181,15 @@ class MappingManagerApp(tk.Tk):
         if update_first:
             self.on_generate_message(auto_copy=False)
         # Limit the generated market message copy to the first 10 lines
-        full_text = getattr(self, "_last_message_text", "") or ""
-        lines = full_text.splitlines()
+        lines = self._generated_message_lines(apply_rounding=True)
+        if not lines:
+            full_text = getattr(self, "_last_message_text", "") or ""
+            lines = full_text.splitlines()
+            if not lines:
+                return
         limited = "\n".join(lines[:10])
         self._copy_text(limited)
+        self._play_sound("copy_message")
 
     def _copy_text(self, text: str):
         try:
@@ -1111,6 +1318,7 @@ class MappingManagerApp(tk.Tk):
             return
 
         win = tk.Toplevel(self)
+        self._play_sound("dialog_open")
         win.title("Paste and import Complete")
         win.geometry("640x460")
         win.transient(self)
@@ -1144,8 +1352,8 @@ class MappingManagerApp(tk.Tk):
             close_window()
             self._show_import_preview(matches)
 
-        ttk.Button(btns, text="Cancel", command=close_window).pack(side=tk.LEFT)
-        ttk.Button(btns, text="Confirm", command=confirm_import).pack(side=tk.RIGHT)
+        self._button(btns, text="Cancel", command=close_window).pack(side=tk.LEFT)
+        self._button(btns, text="Confirm", command=confirm_import).pack(side=tk.RIGHT)
 
         def on_close():
             close_window()
@@ -1164,14 +1372,27 @@ class MappingManagerApp(tk.Tk):
         if not path:
             return
 
+        current_messages = copy.deepcopy(self._thankyou_messages())
+        current_formats = copy.deepcopy(self._message_formats())
+        selected_format = self._selected_message_format()
+        current_sound_enabled = bool(self.data.get("sound_enabled", True))
+        current_sound_volume = self._sound_volume()
+
         # Initialize an empty data structure with current global defaults
         self.data = {
             "intro_line": "LF Snipers: (Overnight OK)",
             "regions": [],
             "search_prefix": self.var_search_prefix.get() or DEFAULT_SEARCH_PREFIX,
-            "thankyou_text": self.data.get("thankyou_text", THANKYOU_TEXT),
+            "thankyou_messages": current_messages,
+            "thankyou_text": current_messages[0]["text"],
+            "message_formats": current_formats,
+            "selected_message_format": selected_format,
+            "sound_enabled": current_sound_enabled,
+            "sound_volume": current_sound_volume,
+            "auto_round_prices": bool(self.data.get("auto_round_prices", False)),
             "search_copy_word_count": self._search_copy_word_count(),
         }
+        self._update_audio_config()
         self.var_intro.set(self.data["intro_line"])
         self.var_search_prefix.set(self.data["search_prefix"])
         self.var_search_word_count.set(self.data["search_copy_word_count"])
@@ -1244,7 +1465,7 @@ class MappingManagerApp(tk.Tk):
         self._msg_items_data = entries[:]
         self.list_msg.delete(0, tk.END)
         for price, name, _id in entries:
-            line = f"{name}: {price}"
+            line = self._format_entry_line(name, price, apply_rounding=False)
             lines.append(line)
             self.list_msg.insert(tk.END, line)
 
@@ -1262,6 +1483,7 @@ class MappingManagerApp(tk.Tk):
             self._import_preview_window.destroy()
 
         win = tk.Toplevel(self)
+        self._play_sound("dialog_open")
         win.title("Confirm import updates")
         win.geometry("980x520")
         win.transient(self)
@@ -1298,7 +1520,7 @@ class MappingManagerApp(tk.Tk):
             txt.pack(fill=tk.BOTH, expand=True)
 
             if allow_copy:
-                ttk.Button(frame, text="Copy", command=lambda payload=text_str: self._copy_text(payload)) \
+                self._button(frame, text="Copy", command=lambda payload=text_str: self._copy_text(payload)) \
                     .pack(anchor="e", pady=(6, 0))
 
         btns = ttk.Frame(container)
@@ -1313,8 +1535,8 @@ class MappingManagerApp(tk.Tk):
             close_preview()
             self._apply_import_matches(matches)
 
-        ttk.Button(btns, text="Cancel", command=close_preview).pack(side=tk.LEFT)
-        ttk.Button(btns, text="Confirm", command=confirm_changes).pack(side=tk.RIGHT)
+        self._button(btns, text="Cancel", command=close_preview).pack(side=tk.LEFT)
+        self._button(btns, text="Confirm", command=confirm_changes).pack(side=tk.RIGHT)
 
         def on_close():
             close_preview()
@@ -1371,6 +1593,7 @@ class MappingManagerApp(tk.Tk):
                 self._on_tree_select()
 
         self._flash_title("Import applied")
+        self._play_sound("import_success")
 
     def _apply_subgroup_rules(self) -> List[str]:
         ensure_tree_defaults(self.data.get("regions", []))
@@ -1447,43 +1670,8 @@ class MappingManagerApp(tk.Tk):
 
     # ------------------ File I/O ------------------
     def _play_success(self):
-        """Play a short success sound cross-platform; failsafe to bell()."""
-        try:
-            if sys.platform.startswith("win"):
-                try:
-                    import winsound
-                    try:
-                        winsound.PlaySound("SystemNotification",
-                                           winsound.SND_ALIAS | winsound.SND_ASYNC)
-                    except RuntimeError:
-                        winsound.PlaySound("SystemAsterisk",
-                                           winsound.SND_ALIAS | winsound.SND_ASYNC)
-                    return
-                except Exception:
-                    pass
-
-            elif sys.platform == "darwin":
-                snd = "/System/Library/Sounds/Glass.aiff"
-                if os.path.exists(snd):
-                    subprocess.Popen(["afplay", snd],
-                                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                    return
-                subprocess.Popen(["osascript", "-e", "beep 1"],
-                                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                return
-
-            else:
-                if shutil.which("canberra-gtk-play"):
-                    subprocess.Popen(["canberra-gtk-play", "--id", "complete"],
-                                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-                    return
-        except Exception:
-            pass
-
-        try:
-            self.bell()
-        except Exception:
-            pass
+        """Legacy helper: play the generic button click sound."""
+        self._play_sound("button_click")
 
     def load_from_file(self, path: str):
         with open(path, "r", encoding="utf-8") as f:
@@ -1502,7 +1690,23 @@ class MappingManagerApp(tk.Tk):
         self.var_search_prefix.set(self.data["search_prefix"])
         self.data["search_copy_word_count"] = self._sanitize_word_count(raw.get("search_copy_word_count", 1))
         self.var_search_word_count.set(self.data["search_copy_word_count"])
-        self.data["thankyou_text"] = raw.get("thankyou_text", THANKYOU_TEXT)
+        thankyou_messages = self._normalize_thankyou_messages(
+            raw.get("thankyou_messages"),
+            raw.get("thankyou_text", THANKYOU_TEXT),
+        )
+        self.data["thankyou_messages"] = thankyou_messages
+        self.data["thankyou_text"] = thankyou_messages[0]["text"]
+        message_formats = self._normalize_message_formats(raw.get("message_formats"))
+        self.data["message_formats"] = message_formats
+        selected_format = raw.get("selected_message_format")
+        if selected_format in message_formats:
+            self.data["selected_message_format"] = selected_format
+        else:
+            self.data["selected_message_format"] = message_formats[0]
+        self.data["sound_enabled"] = bool(raw.get("sound_enabled", True))
+        self.data["sound_volume"] = self._normalize_volume(raw.get("sound_volume", 0.25))
+        self.data["auto_round_prices"] = bool(raw.get("auto_round_prices", False))
+        self._update_audio_config()
         self.refresh_tree()
         self._clear_editor()
         if hasattr(self, "list_msg"):
@@ -1517,6 +1721,16 @@ class MappingManagerApp(tk.Tk):
     def _write_to_file(self, path: str):
         self.data["intro_line"] = self.var_intro.get()
         self.data["search_copy_word_count"] = self._search_copy_word_count()
+        thankyou_messages = self._thankyou_messages()
+        self.data["thankyou_messages"] = thankyou_messages
+        self.data["thankyou_text"] = thankyou_messages[0]["text"]
+        formats = self._message_formats()
+        self.data["message_formats"] = formats
+        self.data["selected_message_format"] = self._selected_message_format()
+        self.data["auto_round_prices"] = bool(self.data.get("auto_round_prices", False))
+        self.data["sound_enabled"] = bool(self.data.get("sound_enabled", True))
+        self.data["sound_volume"] = self._sound_volume()
+        self._update_audio_config()
 
         try:
             with open(path, "w", encoding="utf-8") as f:
@@ -1763,27 +1977,92 @@ class MappingManagerApp(tk.Tk):
                 return
 
             win = tk.Toplevel(self)
+            self._play_sound("dialog_open")
             win.title("Important User Settings")
-            win.geometry("520x300")
             win.transient(self)
+            self._center_child_window(win, width=728, height=760)
 
             frm = ttk.Frame(win, padding=(12, 12))
             frm.pack(fill=tk.BOTH, expand=True)
 
+            tooltip_cleanup: List[Callable[[], None]] = []
+
+            def create_help_icon(parent: tk.Widget, tooltip_text: str) -> tk.Label:
+                tooltip_win: Optional[tk.Toplevel] = None
+
+                def hide(_=None):
+                    nonlocal tooltip_win
+                    if tooltip_win and tooltip_win.winfo_exists():
+                        tooltip_win.destroy()
+                    tooltip_win = None
+
+                def show(event):
+                    nonlocal tooltip_win
+                    try:
+                        if tooltip_win and tooltip_win.winfo_exists():
+                            return
+                    except Exception:
+                        tooltip_win = None
+                    tooltip_win = tk.Toplevel(win)
+                    tooltip_win.wm_overrideredirect(True)
+                    tooltip_win.attributes("-topmost", True)
+                    tooltip_win.geometry(f"+{event.x_root + 10}+{event.y_root + 10}")
+                    lbl = ttk.Label(
+                        tooltip_win,
+                        text=tooltip_text,
+                        justify="left",
+                        padding=(6, 4),
+                        wraplength=280,
+                    )
+                    lbl.pack()
+
+                icon = tk.Label(
+                    parent,
+                    text="?",
+                    width=2,
+                    relief="ridge",
+                    cursor="question_arrow",
+                    takefocus=0,
+                )
+                icon.bind("<Enter>", show)
+                icon.bind("<Leave>", hide)
+                icon.bind("<ButtonPress>", hide)
+                tooltip_cleanup.append(lambda: hide())
+                return icon
+
+            def add_label_with_help(row: int, text: str, tooltip_text: str) -> None:
+                container = ttk.Frame(frm)
+                container.grid(row=row, column=0, sticky="w", pady=(0, 6))
+                ttk.Label(container, text=text).pack(side=tk.LEFT)
+                icon = create_help_icon(container, tooltip_text)
+                icon.pack(side=tk.LEFT, padx=(6, 0))
+
             # LF message
-            ttk.Label(frm, text="LF message:").grid(row=0, column=0, sticky="w", pady=(0, 6))
+            add_label_with_help(
+                row=0,
+                text="LF message:",
+                tooltip_text="Intro line shown at the top of the generated market message. Leave blank to skip it.",
+            )
             var_intro_local = tk.StringVar(value=self.var_intro.get())
             ent_intro = ttk.Entry(frm, textvariable=var_intro_local)
             ent_intro.grid(row=0, column=1, sticky="we", pady=(0, 6))
 
             # Search prefix
-            ttk.Label(frm, text="Right click search prefix:").grid(row=1, column=0, sticky="w", pady=(0, 6))
+            add_label_with_help(
+                row=1,
+                text="Right click search prefix:",
+                tooltip_text="Text prepended when you copy a target via right-click for quick chat/channel searches.",
+            )
             var_prefix_local = tk.StringVar(value=self.var_search_prefix.get())
             ent_prefix = ttk.Entry(frm, textvariable=var_prefix_local)
             ent_prefix.grid(row=1, column=1, sticky="we", pady=(0, 6))
 
             # Word count for right-click copy
-            ttk.Label(frm, text="Words copied on right-click:").grid(row=2, column=0, sticky="w", pady=(0, 6))
+            add_label_with_help(
+                row=2,
+                text="Words copied on right-click:",
+                tooltip_text="Limits how many words from the target name are included in the right-click copy snippet.",
+            )
             var_word_count_local = tk.IntVar(value=self._search_copy_word_count())
             spinbox_cls = getattr(ttk, "Spinbox", tk.Spinbox)
             spin_word_count = spinbox_cls(
@@ -1796,15 +2075,205 @@ class MappingManagerApp(tk.Tk):
             )
             spin_word_count.grid(row=2, column=1, sticky="w", pady=(0, 6))
 
-            # Thank-you text
-            ttk.Label(frm, text="Thank-you message:").grid(row=3, column=0, sticky="w", pady=(0, 6))
-            var_thanks_local = tk.StringVar(value=self.data.get("thankyou_text", THANKYOU_TEXT))
-            ent_thanks = ttk.Entry(frm, textvariable=var_thanks_local)
-            ent_thanks.grid(row=3, column=1, sticky="we", pady=(0, 6))
+            # Thank-you messages list
+            add_label_with_help(
+                row=3,
+                text="Thank-you messages:",
+                tooltip_text="Maintain multiple thank-you phrases. Checked entries rotate at random whenever the app copies a thank-you message.",
+            )
+            thanks_wrapper = ttk.Frame(frm)
+            thanks_wrapper.grid(row=3, column=1, sticky="we", pady=(0, 6))
+            thanks_wrapper.columnconfigure(0, weight=1)
+
+            thanks_rows = ttk.Frame(thanks_wrapper)
+            thanks_rows.grid(row=0, column=0, sticky="we")
+            thanks_rows.columnconfigure(1, weight=1)
+
+            messages_state: List[Dict[str, Any]] = []
+
+            def rebuild_rows() -> None:
+                for child in thanks_rows.winfo_children():
+                    child.destroy()
+                thanks_rows.columnconfigure(1, weight=1)
+                total = len(messages_state)
+                for idx, entry in enumerate(messages_state):
+                    chk = ttk.Checkbutton(thanks_rows, variable=entry["enabled_var"])
+                    chk.grid(row=idx, column=0, sticky="w", padx=(0, 4), pady=2)
+
+                    ent = ttk.Entry(thanks_rows, textvariable=entry["text_var"])
+                    ent.grid(row=idx, column=1, sticky="we", pady=2)
+
+                    btn = self._button(thanks_rows, text="Delete", command=lambda i=idx: delete_message(i))
+                    btn.grid(row=idx, column=2, padx=(4, 0), pady=2)
+                    if total <= 1:
+                        btn.state(["disabled"])
+                    else:
+                        btn.state(["!disabled"])
+
+            def add_message(text: str = "", enabled: bool = True) -> None:
+                messages_state.append(
+                    {
+                        "text_var": tk.StringVar(value=text),
+                        "enabled_var": tk.BooleanVar(value=enabled),
+                    }
+                )
+                rebuild_rows()
+
+            def delete_message(index: int) -> None:
+                if len(messages_state) <= 1:
+                    return
+                del messages_state[index]
+                rebuild_rows()
+
+            existing_messages = self._thankyou_messages()
+            for message in existing_messages:
+                add_message(message.get("text", ""), bool(message.get("enabled", True)))
+            if not messages_state:
+                add_message(THANKYOU_TEXT, True)
+
+            self._button(
+                thanks_wrapper, text="Add message", command=lambda: add_message("", True)
+            ).grid(row=1, column=0, sticky="e", pady=(4, 0))
+
+            add_label_with_help(
+                row=4,
+                text="Market message format:",
+                tooltip_text="Choose how each generated entry is formatted. Use <name> for the target name and <price> for its SB value.",
+            )
+            formats_wrapper = ttk.Frame(frm)
+            formats_wrapper.grid(row=4, column=1, sticky="we", pady=(0, 6))
+            formats_wrapper.columnconfigure(0, weight=1)
+
+            formats_rows = ttk.Frame(formats_wrapper)
+            formats_rows.grid(row=0, column=0, sticky="we")
+            formats_rows.columnconfigure(1, weight=1)
+
+            formats_state: List[Dict[str, Any]] = []
+            var_selected_format_id = tk.StringVar()
+
+            def rebuild_format_rows() -> None:
+                for child in formats_rows.winfo_children():
+                    child.destroy()
+                formats_rows.columnconfigure(1, weight=1)
+                valid_ids = {entry["id"] for entry in formats_state}
+                if var_selected_format_id.get() not in valid_ids and formats_state:
+                    var_selected_format_id.set(formats_state[0]["id"])
+                total = len(formats_state)
+                for idx, entry in enumerate(formats_state):
+                    ttk.Radiobutton(
+                        formats_rows,
+                        variable=var_selected_format_id,
+                        value=entry["id"],
+                    ).grid(row=idx, column=0, sticky="w", padx=(0, 4), pady=2)
+
+                    ttk.Entry(formats_rows, textvariable=entry["text_var"]).grid(
+                        row=idx, column=1, sticky="we", pady=2
+                    )
+
+                    btn = self._button(
+                        formats_rows, text="Delete", command=lambda i=idx: delete_format(i)
+                    )
+                    btn.grid(row=idx, column=2, padx=(4, 0), pady=2)
+                    if total <= 1:
+                        btn.state(["disabled"])
+                    else:
+                        btn.state(["!disabled"])
+
+            def add_format(text: str = "", fmt_id: Optional[str] = None, select: bool = False) -> None:
+                entry_id = fmt_id or gen_id()
+                entry = {
+                    "id": entry_id,
+                    "text_var": tk.StringVar(value=text),
+                }
+                formats_state.append(entry)
+                if select or not var_selected_format_id.get():
+                    var_selected_format_id.set(entry_id)
+                rebuild_format_rows()
+
+            def delete_format(index: int) -> None:
+                if len(formats_state) <= 1:
+                    return
+                removed = formats_state.pop(index)
+                if var_selected_format_id.get() == removed["id"]:
+                    if formats_state:
+                        var_selected_format_id.set(formats_state[0]["id"])
+                    else:
+                        var_selected_format_id.set("")
+                rebuild_format_rows()
+
+            existing_formats = self._message_formats()
+            selected_format_text = self._selected_message_format()
+            for fmt in existing_formats:
+                add_format(fmt, fmt_id=gen_id(), select=(fmt == selected_format_text))
+            if not formats_state:
+                add_format(DEFAULT_MESSAGE_FORMATS[0], select=True)
+
+            self._button(
+                formats_wrapper, text="Add format", command=lambda: add_format("", select=True)
+            ).grid(row=1, column=0, sticky="e", pady=(4, 0))
+
+            add_label_with_help(
+                row=5,
+                text="Sound effects:",
+                tooltip_text="Toggle interface sounds and adjust volume for cues like copies or completions.",
+            )
+            sound_row = ttk.Frame(frm)
+            sound_row.grid(row=5, column=1, sticky="we", pady=(0, 6))
+            sound_row.columnconfigure(1, weight=1)
+
+            var_sound_enabled = tk.BooleanVar(value=bool(self.data.get("sound_enabled", True)))
+            var_sound_volume = tk.DoubleVar(value=float(self._sound_volume() * 100))
+
+            ttk.Checkbutton(
+                sound_row,
+                text="Enable sound effects",
+                variable=var_sound_enabled,
+            ).grid(row=0, column=0, sticky="w")
+
+            volume_scale = ttk.Scale(
+                sound_row,
+                from_=0,
+                to=100,
+                orient="horizontal",
+                variable=var_sound_volume,
+            )
+            volume_scale.grid(row=0, column=1, sticky="we", padx=(8, 0))
+
+            lbl_volume = ttk.Label(sound_row, width=4, anchor="e")
+            lbl_volume.grid(row=0, column=2, padx=(6, 0))
+
+            def _update_volume_label(value: str | float | int) -> None:
+                try:
+                    lbl_volume.config(text=f"{int(float(value))}%")
+                except Exception:
+                    lbl_volume.config(text="0%")
+
+            volume_scale.configure(command=_update_volume_label)
+            _update_volume_label(var_sound_volume.get())
+
+            # Auto-round price option
+            var_round_local = tk.BooleanVar(value=bool(self.data.get("auto_round_prices", False)))
+            round_row = ttk.Frame(frm)
+            round_row.grid(row=6, column=0, columnspan=2, sticky="w", pady=(0, 6))
+            chk_round = ttk.Checkbutton(
+                round_row,
+                text="Auto-round copied prices",
+                variable=var_round_local,
+            )
+            chk_round.pack(side=tk.LEFT)
+
+            tooltip_text = (
+                "Copied prices snap to 5 SB steps: below 5 becomes 5; remainders 1–2 round down, "
+                "3 stays the same, and 4 rounds up."
+            )
+
+            help_label = create_help_icon(round_row, tooltip_text)
+            help_label.pack(side=tk.LEFT, padx=(6, 0))
 
             # Buttons
             btns = ttk.Frame(frm)
-            btns.grid(row=4, column=0, columnspan=2, sticky="e", pady=(12, 0))
+            btns.grid(row=7, column=0, columnspan=2, sticky="e", pady=(12, 0))
+
             def on_save():
                 # Persist values back into the main app state
                 self.var_intro.set(var_intro_local.get().strip())
@@ -1814,7 +2283,62 @@ class MappingManagerApp(tk.Tk):
                 self.data["intro_line"] = self.var_intro.get()
                 self.data["search_prefix"] = self.var_search_prefix.get()
                 self.data["search_copy_word_count"] = count
-                self.data["thankyou_text"] = var_thanks_local.get().strip() or THANKYOU_TEXT
+
+                messages_payload: List[Dict[str, Any]] = []
+                for entry in messages_state:
+                    text = entry["text_var"].get().strip()
+                    if not text:
+                        continue
+                    messages_payload.append(
+                        {"text": text, "enabled": bool(entry["enabled_var"].get())}
+                    )
+
+                if not messages_payload:
+                    messagebox.showwarning(APP_TITLE, "Please provide at least one thank-you message.")
+                    return
+
+                selected_format_id = var_selected_format_id.get()
+                formats_payload: List[str] = []
+                selected_format_text: Optional[str] = None
+                seen_formats: set[str] = set()
+                for entry in formats_state:
+                    text = entry["text_var"].get().strip()
+                    if not text:
+                        continue
+                    if text not in seen_formats:
+                        formats_payload.append(text)
+                        seen_formats.add(text)
+                    if entry["id"] == selected_format_id and text:
+                        selected_format_text = text
+
+                if not formats_payload:
+                    messagebox.showwarning(APP_TITLE, "Please define at least one market message format using <name> and <price>.")
+                    return
+
+                invalid_formats = [
+                    fmt for fmt in formats_payload if "<name>" not in fmt or "<price>" not in fmt
+                ]
+                if invalid_formats:
+                    messagebox.showwarning(
+                        APP_TITLE,
+                        "Each market message format must include both <name> and <price> placeholders.",
+                    )
+                    return
+
+                normalized_formats = self._normalize_message_formats(formats_payload)
+                self.data["message_formats"] = normalized_formats
+                if selected_format_text and selected_format_text in normalized_formats:
+                    self.data["selected_message_format"] = selected_format_text
+                else:
+                    self.data["selected_message_format"] = normalized_formats[0]
+
+                normalized_messages = self._normalize_thankyou_messages(messages_payload, THANKYOU_TEXT)
+                self.data["thankyou_messages"] = normalized_messages
+                self.data["thankyou_text"] = normalized_messages[0]["text"]
+                self.data["auto_round_prices"] = bool(var_round_local.get())
+                self.data["sound_enabled"] = bool(var_sound_enabled.get())
+                self.data["sound_volume"] = self._normalize_volume(var_sound_volume.get() / 100)
+                self._update_audio_config()
 
                 # Refresh the generated area and persist to disk if a file is open
                 self.on_generate_message(auto_copy=False)
@@ -1829,13 +2353,18 @@ class MappingManagerApp(tk.Tk):
                 except Exception:
                     pass
 
-            ttk.Button(btns, text="Save", command=on_save).pack(side=tk.RIGHT, padx=6)
-            ttk.Button(btns, text="Cancel", command=win.destroy).pack(side=tk.RIGHT)
+            self._button(btns, text="Save", command=on_save).pack(side=tk.RIGHT, padx=6)
+            self._button(btns, text="Cancel", command=win.destroy).pack(side=tk.RIGHT)
 
             frm.columnconfigure(1, weight=1)
             self._settings_win = win
 
             def _on_close():
+                for cleanup in tooltip_cleanup:
+                    try:
+                        cleanup()
+                    except Exception:
+                        pass
                 try:
                     if hasattr(self, "_settings_win"):
                         delattr(self, "_settings_win")
@@ -1859,9 +2388,10 @@ class MappingManagerApp(tk.Tk):
                 return
 
             win = tk.Toplevel(self)
+            self._play_sound("dialog_open")
             win.title("Help / Guide — Mapping Manager")
-            win.geometry("780x520")
             win.transient(self)
+            self._center_child_window(win, width=780, height=520)
             win.attributes("-topmost", False)
 
             # Frame + text + scrollbar

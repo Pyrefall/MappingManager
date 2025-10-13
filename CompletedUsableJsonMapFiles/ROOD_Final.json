@@ -70,7 +70,7 @@
           "completed": false,
           "override_message": "TAM:eec: (re-enter)",
           "needs_snipe": true,
-          "price": 390,
+          "price": 385,
           "children": [
             {
               "id": "f0949d42-de61-47f3-bd6c-e6e88d317ffc",
@@ -124,7 +124,7 @@
               "id": "6128945c-46fe-4869-b369-ff8bf18b0d83",
               "type": "enemy",
               "name": "Sulfurious the Raging Inferno",
-              "include": true,
+              "include": false,
               "completed": false,
               "override_message": "",
               "needs_snipe": false,
@@ -136,7 +136,7 @@
               "id": "cf6e340f-73e1-4019-b57f-1608391cc3e1",
               "type": "enemy",
               "name": "Incendarius the Unquenchable",
-              "include": true,
+              "include": false,
               "completed": false,
               "override_message": "",
               "needs_snipe": false,
@@ -148,7 +148,7 @@
               "id": "33004868-3f9b-4432-8866-5f9aa815fa9c",
               "type": "enemy",
               "name": "Combustius Furnaceheart",
-              "include": true,
+              "include": false,
               "completed": false,
               "override_message": "",
               "needs_snipe": false,
@@ -537,7 +537,7 @@
               "completed": false,
               "override_message": "",
               "needs_snipe": true,
-              "price": 30,
+              "price": 32,
               "children": [],
               "sidenotes": "Rain med"
             },
@@ -588,7 +588,7 @@
           "completed": false,
           "override_message": "Dragoon nf",
           "needs_snipe": true,
-          "price": 360,
+          "price": 365,
           "children": [],
           "sidenotes": "",
           "must_contains_all": true,
@@ -782,7 +782,7 @@
               "completed": false,
               "override_message": "",
               "needs_snipe": true,
-              "price": 10,
+              "price": 12,
               "children": []
             },
             {
@@ -1023,7 +1023,7 @@
           "completed": false,
           "override_message": "",
           "needs_snipe": true,
-          "price": 70,
+          "price": 73,
           "children": [],
           "sidenotes": ""
         }
@@ -1049,7 +1049,7 @@
           "completed": false,
           "override_message": "",
           "needs_snipe": true,
-          "price": 480,
+          "price": 485,
           "children": [],
           "sidenotes": ""
         }
@@ -1071,7 +1071,7 @@
           "id": "1d259085-9f7a-4fbc-bc43-f2d9cc7b7b31",
           "type": "subgroup",
           "name": "Dragon/Warden/Whelping",
-          "include": true,
+          "include": false,
           "completed": false,
           "override_message": "",
           "needs_snipe": false,
@@ -1081,7 +1081,7 @@
               "id": "757e80f3-8ad3-4978-a5f5-ddde1b2530c8",
               "type": "enemy",
               "name": "Dragon",
-              "include": true,
+              "include": false,
               "completed": false,
               "override_message": "",
               "needs_snipe": false,
@@ -1125,5 +1125,40 @@
   ],
   "search_prefix": "in:\n map-snipers",
   "search_copy_word_count": 1,
-  "thankyou_text": "Invited and paid, Thank you!"
+  "thankyou_messages": [
+    {
+      "text": "Invited and paid, Thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid, thanks so much!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid, thank you kindly!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and payment sent, thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited to the map and paid; thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid in full, thank you!",
+      "enabled": true
+    }
+  ],
+  "thankyou_text": "Invited and paid, Thank you!",
+  "message_formats": [
+    "<name>: <price>",
+    "<name> <price>",
+    "<name> - <price>"
+  ],
+  "selected_message_format": "<name>: <price>",
+  "sound_enabled": true,
+  "sound_volume": 0.20723684210526316,
+  "auto_round_prices": false
 }

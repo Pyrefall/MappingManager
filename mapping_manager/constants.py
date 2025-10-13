@@ -1,15 +1,19 @@
 from pathlib import Path
 
 
-HELP_TEXT = """User Guide: Mapping Manager V3.1 (Python Desktop Version)
+HELP_TEXT = """User Guide: Mapping Manager V3.3 (Python Desktop Version)
 
 1. Loading / Creating Configuration Files
 After launching the program, use the top bar:
-- “Load setup”: Open an existing .json configuration file (ROOD, RECS, Lightning, or your own).
+- “Load setup”: Open an existing .json configuration file (Provided ROOD, RECS, Lightning, M1K, or your own).
 - “New setup”: Create a brand-new .json file and start editing from an empty tree.
 Tip: After opening or creating a file, you can use “Save as” to save another copy under a new name.
 
-2. Interface Overview
+2. Importing In-Game Map Data
+Use the “Import ingame map” button after copying goals from the game. In the MouseHunt browser client, open Active Maps → Goals, drag-select starting from the first letter of “Missing …” and scroll until the last mouse name. Copy that selection, paste it into the importer, and follow the confirmation steps.
+
+
+3. Interface Overview
 The main interface is divided into four parts:
 
 (1) Left Panel — Node List
@@ -27,7 +31,7 @@ Contains the main control buttons:
 - “Undo” / “Redo”: Step through your edit history.
 - “Generate market message and copy”: Regenerate the Snipe list and copy it (up to the first 10 lines) to the clipboard.
 - “Save current setup”: Save the current edits to the current file.
-You can also open “Important Message Settings” to edit: the LF message, the right-click search prefix, the number of words copied on right-click, and the thank-you text.
+You can also open “Important Message Settings” to edit: the LF message, the right-click search prefix, the number of words copied on right-click, the thank-you list, market message formats, whether copied prices are auto-rounded to 5 SB steps, and sound-effect preferences (including volume).
 
 (3) Left of Right Pane — Todo List
 Shows all self-completion (non-Snipe) targets that are required and not completed.
@@ -44,11 +48,11 @@ Buttons under the list:
 
 All changes, completions, and price adjustments trigger automatic saving where applicable.
 
-3. Generating Market Messages
+4. Generating Market Messages
 Click “Generate market message and copy” on the top bar, or use the “Copy” button under the message list.
 The list is based on current node states (required, not completed, requires Snipe) and sorted by price (desc) then name (asc).
 
-4. Editing Node Properties
+5. Editing Node Properties
 Select any node on the left; its details appear in the “Edit selected” area on the right.
 - Name: Node name
 - Override message: Optional, custom display name used in the market message
@@ -59,7 +63,7 @@ Select any node on the left; its details appear in the “Edit selected” area 
 Click “Apply changes to selected” to save edits to the node.
 The program auto-saves after each modification, completion, or price adjustment.
 
-5. Editing the Tree Structure
+6. Editing the Tree Structure
 Use the toolbar above the left tree:
 - “+ Region”: Add a new Region
 - “+ Subgroup”: Add a Subgroup under the selected Region or Subgroup
@@ -67,24 +71,28 @@ Use the toolbar above the left tree:
 - “Delete selected”: Delete the selected node and all its children
 - “Open all tabs” / “Close all tabs”: Expand/Collapse the entire tree
 
-6. Summary
-Mapping Manager V3.1 is a tool for managing, editing, and generating Sniper market lists.
+7. Summary
+Mapping Manager V3.3 is a tool for managing, editing, and generating Sniper market lists.
 It supports batch price adjustments, quick completion marking, auto-saving, and flexible node-tree editing.
+Through Important Message Settings you can also enable or disable interface sounds (and set their volume) and decide whether copied prices round to the nearest 5 SB, so the exported lists match your preferred style.
 By loading built-in ROOD/RECS/Lightning configurations — or creating a new setup — you can immediately start organizing and generating market messages without manual data work.
 
-7. Importing in-game map data
-Use the “Import ingame map” button after copying goals from the game. In the MouseHunt browser client, open Active Maps → Goals, drag-select starting from the first letter of “Missing …” and scroll until the last mouse name. Copy that selection, paste it into the importer, and follow the confirmation steps.
-
-Version 3.1 — Interface Gu
+Version 3.3 — Interface Gu
 Not for commercial use. Redistribution must credit the author.
 """
 
-APP_TITLE = "MH Mapping Manager 3.1"
-__version__ = "3.1"
+APP_TITLE = "MH Mapping Manager 3.3"
+__version__ = "3.3"
 __author__ = "InterfaceGu"
 
 PRICE_STEP = 5
 THANKYOU_TEXT = "Invited and paid, Thank you!"
+DEFAULT_THANKYOU_MESSAGES = [THANKYOU_TEXT]
+DEFAULT_MESSAGE_FORMATS = [
+    "<name>: <price>",
+    "<name> <price>",
+    "<name> - <price>",
+]
 DEFAULT_SEARCH_PREFIX = "in:\n map-snipers"
 
 CONFIG_HOME = Path.home() / ".mapping_manager"

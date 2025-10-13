@@ -1443,5 +1443,40 @@
   ],
   "search_prefix": "in:\n map-snipers",
   "search_copy_word_count": 1,
-  "thankyou_text": "Invited and paid, Thank you!"
+  "thankyou_messages": [
+    {
+      "text": "Invited and paid, Thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid, thanks so much!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid, thank you kindly!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and payment sent, thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited to the map and paid; thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid in full, thank you!",
+      "enabled": true
+    }
+  ],
+  "thankyou_text": "Invited and paid, Thank you!",
+  "message_formats": [
+    "<name>: <price>",
+    "<name> <price>",
+    "<name> - <price>"
+  ],
+  "selected_message_format": "<name>: <price>",
+  "sound_enabled": true,
+  "sound_volume": 0.20723684210526316,
+  "auto_round_prices": false
 }

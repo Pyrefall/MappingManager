@@ -13,23 +13,26 @@
 
 ---
 
-# MH Mapping Manager 3.1.0
+# MH Mapping Manager 3.3.0
 
 Mapping Manager is a Tkinter desktop assistant (with a companion Tampermonkey userscript) for coordinating MouseHunt map runs. It helps you manage region/subgroup/enemy hierarchies, generate market messages, and track progress locally on your computer. This tool does not upload user data; all processing is local.
 
 ## Features
 
 - Desktop GUI for editing map trees, prices, and completion state
-- Undo/redo history plus batch price adjustments
 - Generated market message list with configurable right-click copy word count
-- Import helper that parses in-game “Missing / Found” text
+- Sample JSON setups(4 Largest map: M1k, RECS, Lightning, ROOD) in `CompletedUsableJsonMapFiles/` for quick starts 
 - Tampermonkey userscript (`WebExtension.js`) that mirrors the workflow in-browser
-- Sample JSON setups in `CompletedUsableJsonMapFiles/` for quick starts
+- Centralized “Important User Settings” dialog covering LF message, search prefix, thank-you list, message formats, rounding, and sounds
+- Optional sound cues with adjustable volume for key actions
+- Auto-rounding for copied prices so market messages stay in 5 SB increments
+- Import helper that parses in-game “Missing / Found” text
+- Undo/redo history plus batch price adjustments
 
 ## Installation
 
 ```bash
-git clone https://github.com/<your-org>/MappingManager.git
+git clone https://github.com/Pyrefall/MappingManager.git
 cd MappingManager
 python -m venv .venv
 source .venv/bin/activate  # Windows: .venv\Scripts\activate
@@ -43,7 +46,7 @@ python MappingManager.py
 ```
 
 - The app attempts to load your most recent setup (stored under `~/.mapping_manager/last_file.json`).
-- Click **Important User Settings** to configure the LF intro, right-click search prefix, word count copied on right-click, and thank-you text.
+- Click **Important User Settings** to configure the LF intro, right-click search prefix, word count copied on right-click, thank-you text, market message formats, whether prices auto-round when copied, and interface sound/volume preferences.
 - Use the **User Guide** button inside the app for detailed, built-in documentation.
 
 ### Working with Sample Maps
@@ -72,7 +75,7 @@ Ready-to-use `.json` files live in `CompletedUsableJsonMapFiles/`. Load one via 
 
 ## Versioning
 
-The desktop application version is tracked in `mapping_manager/constants.py` (`__version__ = "3.1"`). Tagged GitHub releases should follow `v3.1.0`, `v3.1.1`, etc., matching the app’s semantic version.
+The desktop application version is tracked in `mapping_manager/constants.py` (`__version__ = "3.3"`). Tagged GitHub releases should follow `v3.3.0`, `v3.3.1`, etc., matching the app’s semantic version.
 
 ## Project Health & Policies
 
