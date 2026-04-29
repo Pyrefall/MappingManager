@@ -84,7 +84,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "99bd8608-10e9-4a20-9780-bf37cf9ef201",
@@ -162,7 +162,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "88ac7507-11f8-4a31-9679-af46bf9ef201",
@@ -213,7 +213,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "88ac7507-11f8-4a31-9679-af46bf9ef301",
@@ -315,7 +315,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "77fb6406-22f7-4a42-9568-9e55af9ef201",
@@ -366,7 +366,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "77fb6406-22f7-4a42-9568-9e55af9ef301",
@@ -417,7 +417,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "77fb6406-22f7-4a42-9568-9e55af9ef401",
@@ -555,7 +555,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "66ea5305-33f6-4b53-9457-8d64fe9ef117",
@@ -654,7 +654,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "66ea5305-33f6-4b53-9457-8d64fe9ef217",
@@ -753,7 +753,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "66ea5305-33f6-4b53-9457-8d64fe9ef317",
@@ -841,7 +841,7 @@
               ],
               "sidenotes": "",
               "must_contains_all": true,
-              "auto_collapse": true
+              "auto_collapse": false
             },
             {
               "id": "55df4204-44f5-4a64-9346-7c73ed9ef131",
@@ -892,7 +892,7 @@
               ],
               "sidenotes": "",
               "must_contains_all": true,
-              "auto_collapse": true
+              "auto_collapse": false
             },
             {
               "id": "55df4204-44f5-4a64-9346-7c73ed9ef141",
@@ -943,7 +943,7 @@
               ],
               "sidenotes": "",
               "must_contains_all": true,
-              "auto_collapse": true
+              "auto_collapse": false
             }
           ],
           "sidenotes": "",
@@ -1009,7 +1009,7 @@
               ],
               "sidenotes": "",
               "must_contains_all": true,
-              "auto_collapse": true
+              "auto_collapse": false
             },
             {
               "id": "55df4204-44f5-4a64-9346-7c73ed9ef231",
@@ -1060,7 +1060,7 @@
               ],
               "sidenotes": "",
               "must_contains_all": true,
-              "auto_collapse": true
+              "auto_collapse": false
             },
             {
               "id": "55df4204-44f5-4a64-9346-7c73ed9ef241",
@@ -1111,7 +1111,7 @@
               ],
               "sidenotes": "",
               "must_contains_all": true,
-              "auto_collapse": true
+              "auto_collapse": false
             }
           ],
           "sidenotes": "",
@@ -1602,7 +1602,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "31ad2082-66d3-4f86-8124-5a91cb7ef003",
@@ -1653,7 +1653,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "31ad2082-66d3-4f86-8124-5a91cb7ef004",
@@ -1704,7 +1704,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "31ad2082-66d3-4f86-8124-5a91cb7ef501",
@@ -2037,7 +2037,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "44ce3193-55e4-4a75-9235-6b82dc8ef301",
@@ -2124,7 +2124,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "44ce3193-55e4-4a75-9235-6b82dc8ef401",
@@ -2211,7 +2211,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "44ce3193-55e4-4a75-9235-6b82dc8ef501",
@@ -2298,7 +2298,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "44ce3193-55e4-4a75-9235-6b82dc8ef601",
@@ -2385,7 +2385,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "44ce3193-55e4-4a75-9235-6b82dc8ef701",
@@ -2472,7 +2472,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "44ce3193-55e4-4a75-9235-6b82dc8ef801",
@@ -2547,7 +2547,7 @@
           ],
           "sidenotes": "",
           "must_contains_all": true,
-          "auto_collapse": true
+          "auto_collapse": false
         },
         {
           "id": "44ce3193-55e4-4a75-9235-6b82dc8ef901",

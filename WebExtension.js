@@ -1,7 +1,7 @@
-// ==UserScript==
+﻿// ==UserScript==
 // @name         MH MM
 // @namespace    http://tampermonkey.net/
-// @version      0.1.0
+// @version      1.0.0
 // @description  Mapping Manager (userscript) overlay UI
 // @match        https://www.mousehuntgame.com/*
 // @grant        GM_addStyle
@@ -17,90 +17,70 @@ const THANKYOU_TEXT = "Invited and paid, Thank you!";
 const DEFAULT_SEARCH_PREFIX = "in:\n map-snipers";
 const DEFAULT_MESSAGE_FORMATS = ["<name>: <price>", "<name> <price>", "<name> - <price>"];
 const DEFAULT_THANKYOU_MESSAGES = [{ text: THANKYOU_TEXT, enabled: true }];
-const DEFAULT_TOGGLE_HOTKEY = "Space";
+const DEFAULT_TOGGLE_HOTKEY = "MouseMiddle";
 const HELP_TEXT = `
-[Panel toggle shortcut] Press Space (default shortcut) on a non-interactive area to open/close the panel (autoscroll suppressed). Alt + Middle-click forces toggle anywhere, including inside the panel and on buttons/inputs.
+[Panel toggle shortcut] Press Space (default shortcut) on a non-interactive area to open or close the panel. Alt + Middle-click forces toggle anywhere, including inside the panel and on controls.
 
-[Panel toggle hotkey] You can change the shortcut under User settings → Panel toggle shortcut.
-[Detect Map] Visit MouseHunt → Map → Active Maps so the goals list is visible, then click “Detect Map” in this panel. Review the preview window and press “Apply to nodes” to sync Need/Completed flags automatically.
-To keep things simple, this version removes a few features.
-
-Mousehunt Mapping Manager (Tampermonkey Web extension version) — User Guide
+MouseHunt Mapping Manager Web Version 1.0.0 - User Guide
 
 I. Layout
-1) Left “Nodes”: Tree of Region / Subgroup / Enemy with columns: Name / Snipe? / Need? / Done? / Price.
-2) Middle-left “Controls + Edit selected + Stats”:
-   - Controls: Basic settings and common actions.
-   - Edit selected: Edit the selected node’s properties.
-   - Stats: Six totals (sum of values).
-3) Right two columns:
-   - Generated market message: Auto list of targets that require sniping (Need=✓, Requires Snipe=✓, Completed=✗).
-   - Todo List: Self-do targets (Need=✓, Requires Snipe=✗, Completed=✗, Price>0).
+1) Left tree
+   - Shows Region / Subgroup / Enemy with columns: Name / Snipe / Need / Done / Price / Type.
+   - Price shows blank when its stored value is 0.
+   - Optional setting: hide Enemy rows with Need=false while keeping Region and Subgroup rows visible.
+2) Center
+   - Controls, Edit selected, and Stats.
+3) Right
+   - Generated market message for active snipe targets.
+   - Todo List for active self targets.
 
-II. Files & Save
-- Import: Load a .json setup (ideally exported from the Python version).
-- Export: Save the current setup to a .json file.
-- Save: Persist the current snapshot in the browser (most actions also auto-save).
-- Undo / Redo: Step backward / forward through recent edits.
-- The last filename is remembered inside the extension.
+II. Files and persistence
+- Import: Load a .json setup.
+- Export: Download the current setup as .json.
+- Save: Browser snapshot is persisted automatically after most actions.
+- Undo / Redo: Restore recent edits.
+- The last filename and current snapshot are remembered.
 
 III. Controls
-- LF message: First line used when generating LF text.
-- Right click search prefix: Prefix copied when you right-click (or middle-click / Ctrl+click) an item in the message list.
-- User settings: Configure LF message, right-click search prefix, manage thank-you messages (with multiple options), choose market message formats, toggle sound effects, enable auto-rounding of copied prices, and remap the panel toggle shortcut.
+- User settings: Configure LF message, right-click search prefix, thank-you messages, market message formats, sound, copied-price rounding, random copy for long messages, Todo path display, region-based sorting, hiding Need=false enemies in the left tree, and the panel toggle shortcut.
 - User Guide: Open this help window.
-- Reset run: Clear the Completed checkbox for all items (no other fields are changed).
-- Generate LF message: Build the LF list and auto-copy the first 10 lines to the clipboard.
-- Copy: Copy the current generated result again (first 10 lines).
-- Increase/Decrease unsniped price: Batch price adjust (see Section VI).
+- Reset run: Clear Need and Completed for the current run where applicable.
+- Generate market message and copy: Regenerate the snipe list and copy the first 10 lines.
+- Increase / Decrease snipe price: Batch-adjust prices for active snipe targets.
 
-IV. Editing Nodes
-1) Selecting & Quick toggles:
-   - Click a row in the tree to select; the “Edit selected” panel shows that node’s details.
-   - Click the “Snipe?” or “Need?” cell directly to toggle ✓ / empty. Changes auto-save and refresh stats/lists.
-2) Fields in “Edit selected”:
-   - Name: Display name.
-   - Override: Alternate display name (used in LF if provided).
-   - Need / Completed / Requires Snipe: Three checkboxes controlling inclusion, completion, and sniping.
-   - Price: Numeric value (use − / + to nudge).
-   - Side notes: Optional notes.
-   - Apply: Apply edits to the current node and save.
-3) Structure operations (Nodes toolbar):
-   - + Region / + Subgroup / + Enemy: Add nodes.
-   - Delete: Remove the selected node (and its children).
+IV. Editing nodes
+- Click a row to edit it in the editor panel.
+- Click Snipe or Need cells directly in the left tree to toggle them quickly.
+- Apply changes to save name, override message, Need, Completed, Snipe, price, side notes, and subgroup options.
+- Use + Region / + Subgroup / + Enemy and Delete selected to edit the structure.
 
-V. Two Lists
+V. List behavior
 1) Generated market message
-   - Inclusion: Need=✓ AND Requires Snipe=✓ AND Completed=✗.
-   - Sorting: Price desc, then name asc.
-   - Hover: Show details tooltip (region, subgroup, type, notes).
-   - Right-click / Middle-click / Ctrl+click: Copy “search prefix + first word of display name/override” for market search.
-   - Double-click: Mark as Completed and auto-copy the Thank-you message.
+   - Includes Need=true, Completed=false, Requires Snipe=true.
+   - Default sorting: price desc, then name asc.
+   - Optional sorting: by Region / Subgroup path first when "Sort By Region instead" is enabled.
 2) Todo List
-   - Inclusion: Need=✓ AND Requires Snipe=✗ AND Completed=✗ AND Price>0.
-   - Double-click: Mark as Completed and auto-copy the Thank-you message.
+   - Includes Need=true, Completed=false, Requires Snipe=false, Price>0.
+   - Optional display: append Subgroup / Region path after the name.
 
-VI. Batch Price Rules (aligned with Python)
-- Applies to items with Need=✓ AND Requires Snipe=✓ AND Completed=✗ only.
-- Increase steps: Price>100 → +5; 50<Price<100 → +3; 5<Price<50 → +2.
-- Decrease steps: Price>100 → −5; 50<Price<100 → −3; 5<Price<50 → −2.
-- After execution the list and stats refresh and changes are saved.
+VI. Batch price rules
+- Applies only to Need=true, Requires Snipe=true, Completed=false.
+- Increase: Price>=100 -> +5; 50<Price<100 -> +3; 5<Price<50 -> +2.
+- Decrease: Price>=100 -> -5; 50<Price<100 -> -3; 5<Price<50 -> -2.
+- Changes refresh the tree, lists, and stats and are saved automatically.
 
-VII. Stats (six totals)
-- All required targets: Sum of Need=✓.
-- All snipe targets: Sum of Need=✓ & Requires Snipe=✓.
-- All self targets: Sum of Need=✓ & Requires Snipe=✗.
-- Remaining targets: Sum of Need=✓ & Completed=✗.
-- Remaining snipe targets: Sum of Need=✓ & Requires Snipe=✓ & Completed=✗.
-- Remaining self targets: Sum of Need=✓ & Requires Snipe=✗ & Completed=✗.
+VII. Current release notes
+- The web and Python versions now share the same price-step logic and region-first sorting option.
+- The left tree can now hide Need=false enemies by setting.
+- Price 0 is hidden visually in the left tree.
+- The latest release also includes the updated FFGT map configuration file.
 
 VIII. Tips
-- Generating LF auto-copies the first 10 lines; for longer outputs, generate in parts or copy manually.
-- Any state change (including double-click complete, batch price, Apply) refreshes stats and auto-saves.
-- Use the userscript menu to quickly toggle the panel or open this guide.
-(Press ESC to close this window.)
+- Double-click items in Todo List or Generated market message to mark them completed quickly.
+- Right-click / middle-click / Ctrl-click on market items to copy search text.
+- Press ESC to close this help window.
 
-Author: InterfaceGu — Latest releases: https://github.com/Pyrefall/MappingManager
+Author: InterfaceGu - Latest releases: https://github.com/Pyrefall/MappingManager
 `;
 
 
@@ -363,7 +343,7 @@ function onDetectFromPage(){
   try {
     const result = detectMapFromPage();
     if (!result) {
-      alert('Unable to detect map status on this page. Click the “Map” button (main page, between “Friends” and “Kingdom”), then open the “Active Maps” view to use this feature.');
+      alert('Unable to detect map status on this page. Click the 鈥淢ap鈥?button (main page, between 鈥淔riends鈥?and 鈥淜ingdom鈥?, then open the 鈥淎ctive Maps鈥?view to use this feature.');
       return;
     }
     handleDetectedGoals(result);
@@ -425,19 +405,19 @@ function showDetectionModal(groups){
       </div>
       <div class="mhmm-modal-body mhmm-detect-body">
         <div class="mhmm-detect-col">
-          <div class="mhmm-detect-heading">Missing — unmatched</div>
+          <div class="mhmm-detect-heading">Missing 鈥?unmatched</div>
           <div class="mhmm-detect-list" id="mhmm-detect-missing-unmatch"></div>
         </div>
         <div class="mhmm-detect-col">
-          <div class="mhmm-detect-heading">Found — unmatched</div>
+          <div class="mhmm-detect-heading">Found 鈥?unmatched</div>
           <div class="mhmm-detect-list" id="mhmm-detect-found-unmatch"></div>
         </div>
         <div class="mhmm-detect-col">
-          <div class="mhmm-detect-heading">Missing — matched</div>
+          <div class="mhmm-detect-heading">Missing 鈥?matched</div>
           <div class="mhmm-detect-list" id="mhmm-detect-missing-match"></div>
         </div>
         <div class="mhmm-detect-col">
-          <div class="mhmm-detect-heading">Found — matched</div>
+          <div class="mhmm-detect-heading">Found 鈥?matched</div>
           <div class="mhmm-detect-list" id="mhmm-detect-found-match"></div>
         </div>
       </div>
@@ -455,11 +435,11 @@ function showDetectionModal(groups){
   );
   populateDetectionList(
     wrap.querySelector('#mhmm-detect-missing-match'),
-    groups.missingMatches.map(item => `${item.source} → ${(item.target.name || '').trim()}`)
+    groups.missingMatches.map(item => `${item.source} 鈫?${(item.target.name || '').trim()}`)
   );
   populateDetectionList(
     wrap.querySelector('#mhmm-detect-found-match'),
-    groups.foundMatches.map(item => `${item.source} → ${(item.target.name || '').trim()}`)
+    groups.foundMatches.map(item => `${item.source} 鈫?${(item.target.name || '').trim()}`)
   );
 
   wrap.addEventListener('click', (ev)=>{
@@ -647,13 +627,41 @@ function copyEntriesForMessage(){
     const idx = Math.floor(Math.random() * pool.length);
     picked.push(pool.splice(idx, 1)[0]);
   }
-  picked.sort((a, b) => {
-    if (b[0] !== a[0]) return b[0] - a[0];
-    const nameA = (a[1] || "").toLowerCase();
-    const nameB = (b[1] || "").toLowerCase();
-    return nameA.localeCompare(nameB);
-  });
+  sortItemEntries(picked);
   return picked;
+}
+
+function sortByRegionInsteadEnabled(){
+  return !!App.data.sort_by_region_instead;
+}
+
+function buildNodeSortPath(node_id){
+  const path = findPathToNode(App.data.regions, node_id);
+  if(!path) return "";
+  return path
+    .slice(0, -1)
+    .filter(node => node && (node.type === "region" || node.type === "subgroup"))
+    .map(node => (node.name || "").trim().toLowerCase())
+    .join("/");
+}
+
+function compareItemEntries(a, b){
+  if(sortByRegionInsteadEnabled()){
+    const pathA = buildNodeSortPath(a[2]);
+    const pathB = buildNodeSortPath(b[2]);
+    const pathCmp = pathA.localeCompare(pathB);
+    if(pathCmp !== 0) return pathCmp;
+    const nameCmp = (a[1] || "").toLowerCase().localeCompare((b[1] || "").toLowerCase());
+    if(nameCmp !== 0) return nameCmp;
+    return (Number(b[0]) || 0) - (Number(a[0]) || 0);
+  }
+  if (b[0] !== a[0]) return b[0] - a[0];
+  return (a[1] || "").toLowerCase().localeCompare((b[1] || "").toLowerCase());
+}
+
+function sortItemEntries(entries){
+  entries.sort(compareItemEntries);
+  return entries;
 }
 
 function copyRandomThankyou(){
@@ -722,6 +730,21 @@ function showUserSettings(){
         </div>
 
         <div class="mhmm-settings-field">
+          <label class="mhmm-small">Todo List display</label>
+          <label class="mhmm-inline-check"><input id="mhmm-settings-show-subgroup" type="checkbox" /> Show SubGroup in TodoList</label>
+        </div>
+
+        <div class="mhmm-settings-field">
+          <label class="mhmm-small">List sorting</label>
+          <label class="mhmm-inline-check"><input id="mhmm-settings-sort-region" type="checkbox" /> Sort By Region instead</label>
+        </div>
+
+        <div class="mhmm-settings-field">
+          <label class="mhmm-small">Left tree display</label>
+          <label class="mhmm-inline-check"><input id="mhmm-settings-hide-unneeded-enemies" type="checkbox" /> Hide Need=false enemies in left tree</label>
+        </div>
+
+        <div class="mhmm-settings-field">
           <label class="mhmm-small">Panel toggle shortcut</label>
           <div class="mhmm-settings-row">
             <input id="mhmm-settings-hotkey" type="text" class="mhmm-input" placeholder="Space" />
@@ -739,6 +762,9 @@ function showUserSettings(){
   const soundToggle = wrap.querySelector('#mhmm-settings-sound');
   const roundToggle = wrap.querySelector('#mhmm-settings-round');
   const randomToggle = wrap.querySelector('#mhmm-settings-random-copy');
+  const showSubgroupToggle = wrap.querySelector('#mhmm-settings-show-subgroup');
+  const sortRegionToggle = wrap.querySelector('#mhmm-settings-sort-region');
+  const hideUnneededEnemiesToggle = wrap.querySelector('#mhmm-settings-hide-unneeded-enemies');
   const hotkeyInput = wrap.querySelector('#mhmm-settings-hotkey');
   const hotkeyRecordBtn = wrap.querySelector('#mhmm-settings-hotkey-record');
   const hotkeyClearBtn = wrap.querySelector('#mhmm-settings-hotkey-clear');
@@ -747,6 +773,9 @@ function showUserSettings(){
   if(soundToggle) soundToggle.checked = App.soundEnabled;
   if(roundToggle) roundToggle.checked = shouldAutoRoundPrices();
   if(randomToggle) randomToggle.checked = randomCopyIfLongEnabled();
+  if(showSubgroupToggle) showSubgroupToggle.checked = !!App.data.show_subgroup_in_todo_list;
+  if(sortRegionToggle) sortRegionToggle.checked = !!App.data.sort_by_region_instead;
+  if(hideUnneededEnemiesToggle) hideUnneededEnemiesToggle.checked = !!App.data.hide_unneeded_enemies_in_tree;
   if(hotkeyInput){
     hotkeyInput.value = App.toggleHotkey || DEFAULT_TOGGLE_HOTKEY;
   }
@@ -965,6 +994,9 @@ function showUserSettings(){
     App.data.selected_message_format = selectedFormatText;
     App.data.auto_round_prices = roundToggle ? !!roundToggle.checked : false;
     App.data.random_copy_if_long = randomToggle ? !!randomToggle.checked : true;
+    App.data.show_subgroup_in_todo_list = showSubgroupToggle ? !!showSubgroupToggle.checked : false;
+    App.data.sort_by_region_instead = sortRegionToggle ? !!sortRegionToggle.checked : false;
+    App.data.hide_unneeded_enemies_in_tree = hideUnneededEnemiesToggle ? !!hideUnneededEnemiesToggle.checked : false;
     setSoundEnabled(soundToggle ? soundToggle.checked : App.soundEnabled);
     if(hotkeyInput){
       const normalizedHotkey = normalizeHotkeyString(hotkeyInput.value);
@@ -989,6 +1021,7 @@ function showUserSettings(){
     );
 
     persistAuto();
+    updateTodoList();
     onGenerateMessage(false);
     flashTitle('Settings updated');
     playBeep();
@@ -1148,7 +1181,10 @@ const App = {
     message_formats: DEFAULT_MESSAGE_FORMATS.slice(),
     selected_message_format: DEFAULT_MESSAGE_FORMATS[0],
     auto_round_prices: false,
-    random_copy_if_long: true
+    random_copy_if_long: true,
+    show_subgroup_in_todo_list: false,
+    sort_by_region_instead: false,
+    hide_unneeded_enemies_in_tree: false
   },
   toggleHotkey: normalizeHotkeyString(GM_getValue(GM_KEYS.TOGGLE_HOTKEY, DEFAULT_TOGGLE_HOTKEY)) || DEFAULT_TOGGLE_HOTKEY,
   soundEnabled: GM_getValue(GM_KEYS.SOUND_ENABLED, true),
@@ -1575,7 +1611,7 @@ function buildPanel(){
             <button id="ed-apply">Apply</button>
           </div>
         </div>
-		
+
 		<div class="mhmm-h">Stats</div>
         <div id="mhmm-stats" class="mhmm-box">
           <div class="mhmm-stats-row"><span>All required targets</span><strong id="stat-need-all">0</strong></div>
@@ -1585,7 +1621,7 @@ function buildPanel(){
           <div class="mhmm-stats-row"><span>Remaining snipe targets</span><strong id="stat-remaining-snipe">0</strong></div>
           <div class="mhmm-stats-row"><span>Remaining self targets</span><strong id="stat-remaining-self">0</strong></div>
         </div>
-		
+
       </div>
 
       <div id="col-msg" class="mhmm-card">
@@ -1688,6 +1724,9 @@ function buildPanel(){
   if(last){ try{ App.data = JSON.parse(last); }catch(_){} }
   if(typeof App.data.auto_round_prices !== "boolean") App.data.auto_round_prices = false;
   if(typeof App.data.random_copy_if_long !== "boolean") App.data.random_copy_if_long = true;
+  if(typeof App.data.show_subgroup_in_todo_list !== "boolean") App.data.show_subgroup_in_todo_list = false;
+  if(typeof App.data.sort_by_region_instead !== "boolean") App.data.sort_by_region_instead = false;
+  if(typeof App.data.hide_unneeded_enemies_in_tree !== "boolean") App.data.hide_unneeded_enemies_in_tree = false;
   if(typeof App.toggleHotkey !== "string" || !App.toggleHotkey){
     App.toggleHotkey = DEFAULT_TOGGLE_HOTKEY;
   }
@@ -1735,8 +1774,8 @@ function onMiddleToggleDown(e){
     return;
   }
 
-  const force = e.altKey;                         
-  const onInteractive = isInteractiveElement(e.target); 
+  const force = e.altKey;
+  const onInteractive = isInteractiveElement(e.target);
 
   if (force || !onInteractive) {
     e.preventDefault();
@@ -1806,6 +1845,14 @@ function refreshTree(){
   const rows = [];
   (function visit(nodes, depth){
     for(const n of (nodes||[])){
+      if(
+        App.data.hide_unneeded_enemies_in_tree &&
+        n &&
+        n.type === "enemy" &&
+        !n.include
+      ){
+        continue;
+      }
       const hasChildren = !!(n.children && n.children.length);
       const collapsed = hasChildren && getNodeCollapseState(n);
       rows.push({ node:n, depth, hasChildren, collapsed });
@@ -1878,7 +1925,8 @@ function refreshTree(){
 
     const priceCell = document.createElement("div");
     priceCell.className = "mhmm-col-center";
-    priceCell.textContent = Number(n.price||0);
+    const priceValue = Number(n.price || 0);
+    priceCell.textContent = priceValue === 0 ? "" : String(priceValue);
     row.appendChild(priceCell);
 
     row.addEventListener("click", ()=> selectRow(n.id));
@@ -2062,12 +2110,13 @@ function onIncreasePrice(){
   let changed = 0;
 
   for (const n of preorderIter(App.data.regions)) {
-    if (n.include && n.needs_snipe && !n.completed) {
-      let p = Number(n.price || 0);
+    if (!!n.include && !!n.needs_snipe && !n.completed) {
+      let p = Number.parseInt(n.price, 10);
+      if (!Number.isFinite(p)) p = 0;
       let delta = 0;
-      if (p > 100)           delta = +5;
+      if (p >= 100)          delta = +5;
       else if (p > 50 && p < 100) delta = +3;
-      else if (p > 5  && p < 50)  delta = +2; 
+      else if (p > 5  && p < 50)  delta = +2;
 
       if (delta !== 0) {
         n.price = p + delta;
@@ -2078,6 +2127,7 @@ function onIncreasePrice(){
 
   if (changed > 0) {
     refreshTree();
+    updateStats();
     updateTodoList();
     onGenerateMessage(false);
     persistAuto();
@@ -2093,12 +2143,13 @@ function onDecreasePrice(){
   let changed = 0;
 
   for (const n of preorderIter(App.data.regions)) {
-    if (n.include && n.needs_snipe && !n.completed) {
-      let p = Number(n.price || 0);
+    if (!!n.include && !!n.needs_snipe && !n.completed) {
+      let p = Number.parseInt(n.price, 10);
+      if (!Number.isFinite(p)) p = 0;
       let delta = 0;
-      if (p > 100)           delta = -5;
-      else if (p > 50 && p < 100) delta = -3; 
-      else if (p > 5  && p < 50)  delta = -2; 
+      if (p >= 100)          delta = -5;
+      else if (p > 50 && p < 100) delta = -3;
+      else if (p > 5  && p < 50)  delta = -2;
 
       if (delta !== 0) {
         n.price = p + delta;
@@ -2109,6 +2160,7 @@ function onDecreasePrice(){
 
   if (changed > 0) {
     refreshTree();
+    updateStats();
     updateTodoList();
     onGenerateMessage(false);
     persistAuto();
@@ -2213,7 +2265,7 @@ function onGenerateMessage(autoCopy){
     const price = Number(n.price||0);
     entries.push([price, name, n.id]);
   }
-  entries.sort((a,b)=> b[0]-a[0] || a[1].toLowerCase().localeCompare(b[1].toLowerCase()));
+  sortItemEntries(entries);
   App.msgItemsData = entries.slice();
 
   ui.msg.innerHTML = "";
@@ -2321,8 +2373,26 @@ function computeTodoItems(){
     if(!name) continue;
     items.push([p, name, n.id]);
   }
-  items.sort((a,b)=> b[0]-a[0] || a[1].toLowerCase().localeCompare(b[1].toLowerCase()));
+  sortItemEntries(items);
   return items;
+}
+function buildTodoPathLabel(node_id){
+  const path = findPathToNode(App.data.regions, node_id);
+  if(!path || path.length < 2) return "";
+  const parts = [];
+  for(let i = path.length - 2; i >= 0; i--){
+    const p = path[i];
+    if((p.type === "subgroup" || p.type === "region") && (p.name||"").trim()){
+      parts.push((p.name||"").trim());
+    }
+  }
+  return parts.join("/");
+}
+function formatTodoDisplayText(name, node_id){
+  const base = (name || "").trim();
+  if(!App.data.show_subgroup_in_todo_list) return base;
+  const pathLabel = buildTodoPathLabel(node_id);
+  return pathLabel ? `${base} - ${pathLabel}` : base;
 }
 function updateTodoList(){
   App.todoItemsData = computeTodoItems();
@@ -2330,7 +2400,7 @@ function updateTodoList(){
   for(const [price, name, node_id] of App.todoItemsData){
     const div = document.createElement("div");
     div.className = "mhmm-list-item";
-    div.textContent = name;
+    div.textContent = formatTodoDisplayText(name, node_id);
     div.addEventListener("mousemove", (ev)=>{
       const info = buildTodoInfoText(node_id, name, price);
       if(info) showTooltip(info, ev.clientX+12, ev.clientY+12);
@@ -2410,6 +2480,9 @@ async function onImport(){
     App.data.selected_message_format = data.selected_message_format || App.data.message_formats[0];
     App.data.auto_round_prices = !!data.auto_round_prices;
     App.data.random_copy_if_long = data.random_copy_if_long !== undefined ? !!data.random_copy_if_long : true;
+    App.data.show_subgroup_in_todo_list = !!data.show_subgroup_in_todo_list;
+    App.data.sort_by_region_instead = !!data.sort_by_region_instead;
+    App.data.hide_unneeded_enemies_in_tree = !!data.hide_unneeded_enemies_in_tree;
     const importedHotkey = normalizeHotkeyString(data.toggle_hotkey);
     if(importedHotkey){
       App.toggleHotkey = importedHotkey;
@@ -2494,3 +2567,4 @@ function closeHelp(){
   injectStyles();
   buildPanel();
 })();
+
