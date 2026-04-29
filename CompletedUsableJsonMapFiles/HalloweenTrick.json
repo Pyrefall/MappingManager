@@ -1,0 +1,343 @@
+{
+  "intro_line": "LF Snipers: (Overnight OK)",
+  "regions": [
+    {
+      "id": "gloomy-greenwood-region-001",
+      "type": "region",
+      "name": "Gloomy Greenwood-Halloween Trick",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "subgroup-scream-001",
+          "type": "subgroup",
+          "name": "Scream Cheese",
+          "include": false,
+          "completed": false,
+          "override_message": "Scream set",
+          "needs_snipe": true,
+          "price": 25,
+          "children": [
+            {
+              "id": "enemy-016",
+              "type": "enemy",
+              "name": "Baba Gaga",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-017",
+              "type": "enemy",
+              "name": "Bonbon Gummy Globlin",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-018",
+              "type": "enemy",
+              "name": "Hollowed",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-019",
+              "type": "enemy",
+              "name": "Hollowed Minion",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-020",
+              "type": "enemy",
+              "name": "Swamp Thang",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "subgroup-polter-001",
+          "type": "subgroup",
+          "name": "Polter-Geitost",
+          "include": false,
+          "completed": false,
+          "override_message": "Ploter set",
+          "needs_snipe": true,
+          "price": 30,
+          "children": [
+            {
+              "id": "enemy-009",
+              "type": "enemy",
+              "name": "Admiral Arrrgh",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-010",
+              "type": "enemy",
+              "name": "Captain Cannonball",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-011",
+              "type": "enemy",
+              "name": "Ghost Pirate Queen",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-012",
+              "type": "enemy",
+              "name": "Gourd Ghoul",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-013",
+              "type": "enemy",
+              "name": "Scorned Pirate",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-014",
+              "type": "enemy",
+              "name": "Spectral Butler",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-015",
+              "type": "enemy",
+              "name": "Spectral Swashbuckler",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "subgroup-bonefort-001",
+          "type": "subgroup",
+          "name": "Bonefort",
+          "include": false,
+          "completed": false,
+          "override_message": "Bonefort set",
+          "needs_snipe": true,
+          "price": 30,
+          "children": [
+            {
+              "id": "enemy-001",
+              "type": "enemy",
+              "name": "Creepy Marionette",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-002",
+              "type": "enemy",
+              "name": "Dire Lycan",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-003",
+              "type": "enemy",
+              "name": "Grave Robber",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-004",
+              "type": "enemy",
+              "name": "Hollowhead",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-005",
+              "type": "enemy",
+              "name": "Mousataur Priestess",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-006",
+              "type": "enemy",
+              "name": "Sandmouse",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-007",
+              "type": "enemy",
+              "name": "Titanic Brain-Taker",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "enemy-008",
+              "type": "enemy",
+              "name": "Tomb Exhumer",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    }
+  ],
+  "search_prefix": "in:\n map-snipers",
+  "search_copy_word_count": 1,
+  "thankyou_messages": [
+    {
+      "text": "Invited and paid, Thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid, thanks so much!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid, thank you kindly!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and payment sent, thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited to the map and paid; thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid in full, thank you!",
+      "enabled": true
+    }
+  ],
+  "thankyou_text": "Invited and paid, Thank you!",
+  "message_formats": [
+    "<name>: <price>",
+    "<name> <price>",
+    "<name> - <price>"
+  ],
+  "selected_message_format": "<name>: <price>",
+  "sound_enabled": true,
+  "sound_volume": 0.20723684210526316,
+  "auto_round_prices": false
+}

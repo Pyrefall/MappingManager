@@ -1,0 +1,2612 @@
+{
+  "intro_line": "LF Snipers: (Overnight OK,Allow Queue)",
+  "regions": [
+    {
+      "id": "76187837-1506-4eeb-8c87-7b751e26a0d1",
+      "type": "region",
+      "name": "Foreword Farm",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "99bd8608-10e9-4a20-9780-bf37cf9ef001",
+          "type": "enemy",
+          "name": "Crazed Cultivator",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 10,
+          "children": [],
+          "sidenotes": "SB+Only,Not in 3 Twisted PPP"
+        },
+        {
+          "id": "99bd8608-10e9-4a20-9780-bf37cf9ef101",
+          "type": "subgroup",
+          "name": "Pests",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "99bd8608-10e9-4a20-9780-bf37cf9ef111",
+              "type": "enemy",
+              "name": "Angry Aphid",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": "1P+"
+            },
+            {
+              "id": "99bd8608-10e9-4a20-9780-bf37cf9ef112",
+              "type": "enemy",
+              "name": "Wily Weevil",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": "2P+"
+            },
+            {
+              "id": "99bd8608-10e9-4a20-9780-bf37cf9ef113",
+              "type": "enemy",
+              "name": "Mighty Mite",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": "3P"
+            },
+            {
+              "id": "99bd8608-10e9-4a20-9780-bf37cf9ef114",
+              "type": "enemy",
+              "name": "Loathsome Locust",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": "3PPPOnly"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "99bd8608-10e9-4a20-9780-bf37cf9ef201",
+          "type": "enemy",
+          "name": "Monstrous Midge",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 15,
+          "children": [],
+          "sidenotes": "3TPPPOnly"
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "020f0de3-8c3e-4c5d-9a95-83e7f066a562",
+      "type": "region",
+      "name": "Prologue Pond",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "88ac7507-11f8-4a31-9679-af46bf9ef101",
+          "type": "subgroup",
+          "name": "Grubbeen",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "88ac7507-11f8-4a31-9679-af46bf9ef111",
+              "type": "enemy",
+              "name": "Pompous Perch",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "88ac7507-11f8-4a31-9679-af46bf9ef112",
+              "type": "enemy",
+              "name": "Careless Catfish",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "88ac7507-11f8-4a31-9679-af46bf9ef113",
+              "type": "enemy",
+              "name": "Melodramatic Minnow",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "88ac7507-11f8-4a31-9679-af46bf9ef201",
+          "type": "subgroup",
+          "name": "ClamemBert",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "88ac7507-11f8-4a31-9679-af46bf9ef211",
+              "type": "enemy",
+              "name": "Sinister Squid",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "88ac7507-11f8-4a31-9679-af46bf9ef212",
+              "type": "enemy",
+              "name": "Nefarious Nautilus",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "88ac7507-11f8-4a31-9679-af46bf9ef213",
+              "type": "enemy",
+              "name": "Vicious Vampire Squid",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "88ac7507-11f8-4a31-9679-af46bf9ef301",
+          "type": "enemy",
+          "name": "Architeuthulhu of the Abyss",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "4df8b1c3-19c8-48ce-b2e6-808946851672",
+          "type": "enemy",
+          "name": "Covetous Coastguard",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 10,
+          "children": [],
+          "sidenotes": "SB+ Only"
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "13bb9158-1c00-462d-9313-8b8e5da83ead",
+      "type": "region",
+      "name": "Table Of Contents",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "77fb6406-22f7-4a42-9568-9e55af9ef001",
+          "type": "enemy",
+          "name": "Matriarch Gander",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 15,
+          "children": [],
+          "sidenotes": "OutSide,Sb+ Only"
+        },
+        {
+          "id": "77fb6406-22f7-4a42-9568-9e55af9ef101",
+          "type": "subgroup",
+          "name": "StandardBait",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "77fb6406-22f7-4a42-9568-9e55af9ef111",
+              "type": "enemy",
+              "name": "Little Miss Fluffet",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "77fb6406-22f7-4a42-9568-9e55af9ef112",
+              "type": "enemy",
+              "name": "Humphrey Dumphrey",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "77fb6406-22f7-4a42-9568-9e55af9ef113",
+              "type": "enemy",
+              "name": "Little Bo Squeak",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "77fb6406-22f7-4a42-9568-9e55af9ef201",
+          "type": "subgroup",
+          "name": "1DD",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "77fb6406-22f7-4a42-9568-9e55af9ef211",
+              "type": "enemy",
+              "name": "Princess and the Olive",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "77fb6406-22f7-4a42-9568-9e55af9ef212",
+              "type": "enemy",
+              "name": "Pinkielina",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "77fb6406-22f7-4a42-9568-9e55af9ef213",
+              "type": "enemy",
+              "name": "Fibbocchio",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "77fb6406-22f7-4a42-9568-9e55af9ef301",
+          "type": "subgroup",
+          "name": "2DD",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "77fb6406-22f7-4a42-9568-9e55af9ef311",
+              "type": "enemy",
+              "name": "Greenbeard",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "77fb6406-22f7-4a42-9568-9e55af9ef312",
+              "type": "enemy",
+              "name": "Flamboyant Flautist",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "77fb6406-22f7-4a42-9568-9e55af9ef313",
+              "type": "enemy",
+              "name": "Ice Regent",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "77fb6406-22f7-4a42-9568-9e55af9ef401",
+          "type": "enemy",
+          "name": "Bitter Grammarian",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "77fb6406-22f7-4a42-9568-9e55af9ef402",
+          "type": "enemy",
+          "name": "Mythweaver",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 5,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "9c571780-2de0-4aec-a373-f4998e493851",
+      "type": "region",
+      "name": "Bontiful Beanstalk",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "66ea5305-33f6-4b53-9457-8d64fe9ef001",
+          "type": "enemy",
+          "name": "Vinneus Stalkhome",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 150,
+          "children": [],
+          "sidenotes": "Outside,Boss"
+        },
+        {
+          "id": "66ea5305-33f6-4b53-9457-8d64fe9ef101",
+          "type": "subgroup",
+          "name": "Dungeon",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef111",
+              "type": "enemy",
+              "name": "Cell Sweeper",
+              "include": false,
+              "completed": false,
+              "override_message": "Cell Sweeper(Dungeon-BeansterCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Beanster"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef112",
+              "type": "enemy",
+              "name": "Jovial Jailor",
+              "include": false,
+              "completed": false,
+              "override_message": "Jovial Jailor(Dungeon-BeansterCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Beanster"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef113",
+              "type": "enemy",
+              "name": "Lethargic Guar",
+              "include": false,
+              "completed": false,
+              "override_message": "Lethargic Guar(Dungeon-BeansterCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Beanster"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef114",
+              "type": "enemy",
+              "name": "Gate Keeper",
+              "include": false,
+              "completed": false,
+              "override_message": "Gate Keeper(Dungeon-LavishCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Lavish"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef115",
+              "type": "enemy",
+              "name": "Key Master",
+              "include": false,
+              "completed": false,
+              "override_message": "Key Master(Dungeon-LavishCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Lavish"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef116",
+              "type": "enemy",
+              "name": "Wrathful Warden",
+              "include": false,
+              "completed": false,
+              "override_message": "Wrathful Warden(Dungeon-RoyalBeansterCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "RoyalB"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "66ea5305-33f6-4b53-9457-8d64fe9ef117",
+          "type": "enemy",
+          "name": "Dungeon Master",
+          "include": false,
+          "completed": false,
+          "override_message": "Dungeon Master DM",
+          "needs_snipe": true,
+          "price": 220,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "66ea5305-33f6-4b53-9457-8d64fe9ef201",
+          "type": "subgroup",
+          "name": "Ballroom",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef211",
+              "type": "enemy",
+              "name": "Obstinate Oboist",
+              "include": false,
+              "completed": false,
+              "override_message": "Obstinate Oboist(Balllroom-BeansterCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Beanster"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef212",
+              "type": "enemy",
+              "name": "Peevish Piccoloist",
+              "include": false,
+              "completed": false,
+              "override_message": "Peevish Piccoloist(Balllroom-BeansterCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Beanster"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef213",
+              "type": "enemy",
+              "name": "Sultry Saxophonist",
+              "include": false,
+              "completed": false,
+              "override_message": "Sultry Saxophonist(Balllroom-BeansterCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Beanster"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef214",
+              "type": "enemy",
+              "name": "Violent Violinist",
+              "include": false,
+              "completed": false,
+              "override_message": "Violent Violinist(Ballroom-LavishCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Lavish"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef215",
+              "type": "enemy",
+              "name": "Chafed Cellist",
+              "include": false,
+              "completed": false,
+              "override_message": "Chafed Cellist(Balllroom-LavishCheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "Lavish"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef216",
+              "type": "enemy",
+              "name": "Treacherous Tubaist",
+              "include": false,
+              "completed": false,
+              "override_message": "Treacherous Tubaist(BallRoom-Royal Beanster Cheese)",
+              "needs_snipe": true,
+              "price": 20,
+              "children": [],
+              "sidenotes": "RoyalB"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "66ea5305-33f6-4b53-9457-8d64fe9ef217",
+          "type": "enemy",
+          "name": "Malevolent Maestro",
+          "include": false,
+          "completed": false,
+          "override_message": "Malevolent Maestro MM",
+          "needs_snipe": true,
+          "price": 190,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "66ea5305-33f6-4b53-9457-8d64fe9ef301",
+          "type": "subgroup",
+          "name": "Royal",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef311",
+              "type": "enemy",
+              "name": "Vindictive Viscount",
+              "include": false,
+              "completed": false,
+              "override_message": "Vindictive Viscount(Royal-BeansterCheese)",
+              "needs_snipe": true,
+              "price": 15,
+              "children": [],
+              "sidenotes": "Beanster"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef312",
+              "type": "enemy",
+              "name": "Baroness Von Bean",
+              "include": false,
+              "completed": false,
+              "override_message": "Baroness Von Bean(Royal-BeansterCheese)",
+              "needs_snipe": true,
+              "price": 15,
+              "children": [],
+              "sidenotes": "Beanster"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef313",
+              "type": "enemy",
+              "name": "Cagey Countess",
+              "include": false,
+              "completed": false,
+              "override_message": "Cagey Countess(Royal-BeansterCheese)",
+              "needs_snipe": true,
+              "price": 15,
+              "children": [],
+              "sidenotes": "Beanster"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef314",
+              "type": "enemy",
+              "name": "Dastardly Duchess",
+              "include": false,
+              "completed": false,
+              "override_message": "Dastardly Duchess(Royal-LavishCheese)",
+              "needs_snipe": true,
+              "price": 15,
+              "children": [],
+              "sidenotes": "Lavish"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef315",
+              "type": "enemy",
+              "name": "Malicious Marquis",
+              "include": false,
+              "completed": false,
+              "override_message": "Malicious Marquis(Royal-LavishCheese)",
+              "needs_snipe": true,
+              "price": 15,
+              "children": [],
+              "sidenotes": "Lavish"
+            },
+            {
+              "id": "66ea5305-33f6-4b53-9457-8d64fe9ef316",
+              "type": "enemy",
+              "name": "Pernicious Prince",
+              "include": false,
+              "completed": false,
+              "override_message": "Pernicious Prince(Royal-RoyalBeansterCheese)",
+              "needs_snipe": true,
+              "price": 15,
+              "children": [],
+              "sidenotes": "RoyalB"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "66ea5305-33f6-4b53-9457-8d64fe9ef317",
+          "type": "enemy",
+          "name": "Mythical Giant King",
+          "include": false,
+          "completed": false,
+          "override_message": "Mythical Giant King(MGK)",
+          "needs_snipe": true,
+          "price": 225,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "61f01660-02ba-4377-b81a-03b3c93c1a62",
+      "type": "region",
+      "name": "School Of Sorcery",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "55df4204-44f5-4a64-9346-7c73ed9ef101",
+          "type": "subgroup",
+          "name": "Arcane",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "55df4204-44f5-4a64-9346-7c73ed9ef121",
+              "type": "subgroup",
+              "name": "AA",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef122",
+                  "type": "enemy",
+                  "name": "Arcana Overachiever",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 30,
+                  "children": [],
+                  "sidenotes": ""
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef123",
+                  "type": "enemy",
+                  "name": "Invisible Fashionista",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 35,
+                  "children": [],
+                  "sidenotes": ""
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef124",
+                  "type": "enemy",
+                  "name": "Enchanted Chess Club Champion",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 45,
+                  "children": [],
+                  "sidenotes": ""
+                }
+              ],
+              "sidenotes": "",
+              "must_contains_all": true,
+              "auto_collapse": true
+            },
+            {
+              "id": "55df4204-44f5-4a64-9346-7c73ed9ef131",
+              "type": "subgroup",
+              "name": "MM",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef132",
+                  "type": "enemy",
+                  "name": "Illustrious Illusionist",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 40,
+                  "children": [],
+                  "sidenotes": ""
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef133",
+                  "type": "enemy",
+                  "name": "Featherlight",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 35,
+                  "children": [],
+                  "sidenotes": ""
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef134",
+                  "type": "enemy",
+                  "name": "Constructively Critical Artist",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 40,
+                  "children": [],
+                  "sidenotes": ""
+                }
+              ],
+              "sidenotes": "",
+              "must_contains_all": true,
+              "auto_collapse": true
+            },
+            {
+              "id": "55df4204-44f5-4a64-9346-7c73ed9ef141",
+              "type": "subgroup",
+              "name": "FinalOnly",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef142",
+                  "type": "enemy",
+                  "name": "Sleep Starved Scholar",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 170,
+                  "children": [],
+                  "sidenotes": "standard,ML:107"
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef143",
+                  "type": "enemy",
+                  "name": "Class Clown",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 170,
+                  "children": [],
+                  "sidenotes": "AA,ML:132"
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef144",
+                  "type": "enemy",
+                  "name": "Tyrannical Thaumaturge",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 145,
+                  "children": [],
+                  "sidenotes": "MM,ML:160"
+                }
+              ],
+              "sidenotes": "",
+              "must_contains_all": true,
+              "auto_collapse": true
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "55df4204-44f5-4a64-9346-7c73ed9ef201",
+          "type": "subgroup",
+          "name": "Shadow",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "55df4204-44f5-4a64-9346-7c73ed9ef221",
+              "type": "subgroup",
+              "name": "AA",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef222",
+                  "type": "enemy",
+                  "name": "Classroom Keener",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 45,
+                  "children": [],
+                  "sidenotes": ""
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef223",
+                  "type": "enemy",
+                  "name": "Audacious Alchemist",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 30,
+                  "children": [],
+                  "sidenotes": ""
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef224",
+                  "type": "enemy",
+                  "name": "Prestigious Prestidigitator",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 35,
+                  "children": [],
+                  "sidenotes": ""
+                }
+              ],
+              "sidenotes": "",
+              "must_contains_all": true,
+              "auto_collapse": true
+            },
+            {
+              "id": "55df4204-44f5-4a64-9346-7c73ed9ef231",
+              "type": "subgroup",
+              "name": "MM",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef232",
+                  "type": "enemy",
+                  "name": "Classroom Disrupter",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 40,
+                  "children": [],
+                  "sidenotes": ""
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef233",
+                  "type": "enemy",
+                  "name": "Teleporting Truant",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 40,
+                  "children": [],
+                  "sidenotes": ""
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef234",
+                  "type": "enemy",
+                  "name": "Magical Multitasker",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 35,
+                  "children": [],
+                  "sidenotes": ""
+                }
+              ],
+              "sidenotes": "",
+              "must_contains_all": true,
+              "auto_collapse": true
+            },
+            {
+              "id": "55df4204-44f5-4a64-9346-7c73ed9ef241",
+              "type": "subgroup",
+              "name": "FinalOnly",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef242",
+                  "type": "enemy",
+                  "name": "Cheat Sheet Conjurer",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 170,
+                  "children": [],
+                  "sidenotes": "standard,ML:107"
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef243",
+                  "type": "enemy",
+                  "name": "Celestial Summoner",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 170,
+                  "children": [],
+                  "sidenotes": "AA,ML:132"
+                },
+                {
+                  "id": "55df4204-44f5-4a64-9346-7c73ed9ef244",
+                  "type": "enemy",
+                  "name": "Data Devourer",
+                  "include": false,
+                  "completed": false,
+                  "override_message": "",
+                  "needs_snipe": false,
+                  "price": 145,
+                  "children": [],
+                  "sidenotes": "MM,ML:160"
+                }
+              ],
+              "sidenotes": "",
+              "must_contains_all": true,
+              "auto_collapse": true
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "55df4204-44f5-4a64-9346-7c73ed9ef301",
+          "type": "enemy",
+          "name": "Arcane Master Sorcerer",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 80,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "55df4204-44f5-4a64-9346-7c73ed9ef302",
+          "type": "enemy",
+          "name": "Shadow Master Sorcerer",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": true,
+          "price": 80,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "55df4204-44f5-4a64-9346-7c73ed9ef303",
+          "type": "enemy",
+          "name": "Mythical Master Sorcerer",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 50,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "09fb80e6-3371-4018-bff3-a022690f4391",
+      "type": "region",
+      "name": "Draconic Depths",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "afc9b4fd-4fcd-4643-99f2-6753dd431c47",
+          "type": "subgroup",
+          "name": "Elemental 750+",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 70,
+          "children": [
+            {
+              "id": "77f03595-fe85-46ca-ba89-8d448e72aa52",
+              "type": "enemy",
+              "name": "Mythical Dragon Emperor",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "08b905b4-f0e7-491d-abaf-c7538d530974",
+              "type": "enemy",
+              "name": "Three'amat the Mother of Dragons",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "f744fb21-0aaf-423d-bd53-fa32554a790f",
+              "type": "enemy",
+              "name": "Supremia Magnificus",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "4873eb78-d3fb-4760-a7f6-8f51e9e742dd",
+          "type": "subgroup",
+          "name": "TAM",
+          "include": false,
+          "completed": false,
+          "override_message": "TAM:eec: (re-enter)",
+          "needs_snipe": false,
+          "price": 500,
+          "children": [
+            {
+              "id": "f0949d42-de61-47f3-bd6c-e6e88d317ffc",
+              "type": "enemy",
+              "name": "Tranquilia Protecticus",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": []
+            },
+            {
+              "id": "633d5419-27e9-4664-8530-ed41866a5713",
+              "type": "enemy",
+              "name": "Absolutia Harmonius",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 340,
+              "children": []
+            },
+            {
+              "id": "ab978abb-c37f-4325-b6fa-f73d89f75f8f",
+              "type": "enemy",
+              "name": "Magnatius Majestica",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 100,
+              "children": []
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "04d006c5-682f-4ec1-b5b7-5f01e17c25c2",
+          "type": "subgroup",
+          "name": "Fire 750+",
+          "include": false,
+          "completed": false,
+          "override_message": "Fire 750+ :fire_grub:",
+          "needs_snipe": true,
+          "price": 60,
+          "children": [
+            {
+              "id": "6128945c-46fe-4869-b369-ff8bf18b0d83",
+              "type": "enemy",
+              "name": "Sulfurious the Raging Inferno",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "cf6e340f-73e1-4019-b57f-1608391cc3e1",
+              "type": "enemy",
+              "name": "Incendarius the Unquenchable",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "33004868-3f9b-4432-8866-5f9aa815fa9c",
+              "type": "enemy",
+              "name": "Combustius Furnaceheart",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "1b0518b0-5d65-4085-93d4-49e8a4a737f5",
+          "type": "subgroup",
+          "name": "Ice 750+",
+          "include": false,
+          "completed": false,
+          "override_message": "Ice 750+ :ice_grub:",
+          "needs_snipe": true,
+          "price": 35,
+          "children": [
+            {
+              "id": "00814a88-ee32-4cce-98dc-f1e5053a4be0",
+              "type": "enemy",
+              "name": "Arcticus the Biting Frost",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "01276502-7fab-4b26-b983-bf987d2a0cc4",
+              "type": "enemy",
+              "name": "Avalancheus the Glacial",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "d4066177-9167-4206-b9ba-c76fb9179e75",
+              "type": "enemy",
+              "name": "Chillandria Permafrost",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "99eecf82-9dad-4faa-b134-d86ccfe30eec",
+          "type": "subgroup",
+          "name": "Poison 750+",
+          "include": false,
+          "completed": false,
+          "override_message": "Poison 750+ :poison_grub:",
+          "needs_snipe": false,
+          "price": 61,
+          "children": [
+            {
+              "id": "382f8d69-a0da-4a23-b482-ae826cdca8ec",
+              "type": "enemy",
+              "name": "Corrupticus the Blight Baron",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "a86b5ea1-af18-4de4-a7b0-19d086ff93fc",
+              "type": "enemy",
+              "name": "Pestilentia the Putrid",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "fa5c27bb-05ca-423c-9fa8-9cf75d654beb",
+              "type": "enemy",
+              "name": "Belchazar Banewright",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 0,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": false,
+          "auto_collapse": true
+        },
+        {
+          "id": "5ce6b4ca-95cd-4876-9df9-aa01ad551211",
+          "type": "subgroup",
+          "name": "Fire 0-750(Crematio+Flamina)",
+          "include": false,
+          "completed": false,
+          "override_message": "Fire 0-750(Crematio+Flamina) :fire_grub:",
+          "needs_snipe": false,
+          "price": 100,
+          "children": [
+            {
+              "id": "6b24dbb2-2dd0-4e1c-8e31-3a5dfafe63ac",
+              "type": "enemy",
+              "name": "Crematio",
+              "include": false,
+              "completed": false,
+              "override_message": "Fire 0-750(Crematio) :fire_grub:",
+              "needs_snipe": true,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "aa65518e-f8ee-4308-a120-6f3c1fb13f08",
+              "type": "enemy",
+              "name": "Flamina",
+              "include": false,
+              "completed": false,
+              "override_message": "Fire 0-750(Flamina) :fire_grub:",
+              "needs_snipe": false,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "a5448512-21a3-4aed-b981-1cebf630e979",
+          "type": "subgroup",
+          "name": "Ice 0-750(Rimeus+Frigidocius)",
+          "include": false,
+          "completed": false,
+          "override_message": "Ice 0-750(Rimeus+Frigidocius) :ice_grub:",
+          "needs_snipe": false,
+          "price": 140,
+          "children": [
+            {
+              "id": "8fe64be2-8acb-4d19-b239-9e471dee2e04",
+              "type": "enemy",
+              "name": "Rimeus",
+              "include": false,
+              "completed": false,
+              "override_message": "Ice 0-750(Rimeus) :ice_grub:",
+              "needs_snipe": true,
+              "price": 40,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "bafdb6e0-eba3-4d13-9c03-2af0b3eb7996",
+              "type": "enemy",
+              "name": "Frigidocius",
+              "include": false,
+              "completed": false,
+              "override_message": "Ice 0-750(Frigidocius) :ice_grub:",
+              "needs_snipe": true,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "e5100aaf-fbb3-4443-9590-27cc60016084",
+          "type": "subgroup",
+          "name": "Poison 0-750(Malignus+Venomona)",
+          "include": false,
+          "completed": false,
+          "override_message": "Poison 0-750(Malignus+Venomona) :poison_grub:",
+          "needs_snipe": false,
+          "price": 100,
+          "children": [
+            {
+              "id": "de8c6a1e-225e-4768-aaa7-0d4c4d0520e8",
+              "type": "enemy",
+              "name": "Malignus",
+              "include": false,
+              "completed": false,
+              "override_message": "Poison 0-750(Malignus) :poison_grub:",
+              "needs_snipe": false,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "8528fc39-4128-4eea-bab4-f4ea28b08e51",
+              "type": "enemy",
+              "name": "Venomona",
+              "include": false,
+              "completed": false,
+              "override_message": "Poison 0-750(Venomona) :poison_grub:",
+              "needs_snipe": false,
+              "price": 60,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "e67cc3dc-a65a-4f2f-a531-56b7a8c00a9d",
+      "type": "region",
+      "name": "Afterword Acres",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "31ad2082-66d3-4f86-8124-5a91cb7ef002",
+          "type": "subgroup",
+          "name": "MMC",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "31ad2082-66d3-4f86-8124-5a91cb7ef201",
+              "type": "enemy",
+              "name": "Sardonic Sapling",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "31ad2082-66d3-4f86-8124-5a91cb7ef202",
+              "type": "enemy",
+              "name": "Twisted Twig",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "31ad2082-66d3-4f86-8124-5a91cb7ef203",
+              "type": "enemy",
+              "name": "Sour Sprout",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "31ad2082-66d3-4f86-8124-5a91cb7ef003",
+          "type": "subgroup",
+          "name": "AAC",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "31ad2082-66d3-4f86-8124-5a91cb7ef301",
+              "type": "enemy",
+              "name": "Maniacal Maple",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "31ad2082-66d3-4f86-8124-5a91cb7ef302",
+              "type": "enemy",
+              "name": "Brash Birch",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "31ad2082-66d3-4f86-8124-5a91cb7ef303",
+              "type": "enemy",
+              "name": "Wailing Willow",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "31ad2082-66d3-4f86-8124-5a91cb7ef004",
+          "type": "subgroup",
+          "name": "SSC",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "31ad2082-66d3-4f86-8124-5a91cb7ef401",
+              "type": "enemy",
+              "name": "Furious Fir",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "31ad2082-66d3-4f86-8124-5a91cb7ef402",
+              "type": "enemy",
+              "name": "Heinous Hemlock",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "31ad2082-66d3-4f86-8124-5a91cb7ef403",
+              "type": "enemy",
+              "name": "Rampaging Redwood",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 15,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "31ad2082-66d3-4f86-8124-5a91cb7ef501",
+          "type": "enemy",
+          "name": "Herbicidal Maniac",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 25,
+          "children": [],
+          "sidenotes": ""
+        },
+        {
+          "id": "31ad2082-66d3-4f86-8124-5a91cb7ef502",
+          "type": "enemy",
+          "name": "Blight Incarnate",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 10,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "3977c54c-7176-4110-8141-6d459ce18a24",
+      "type": "region",
+      "name": "Epilogue Falls",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "22bc1981-77c2-4f97-8343-4820da8ef002",
+          "type": "subgroup",
+          "name": "MMC",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef201",
+              "type": "enemy",
+              "name": "Anguished Anemone",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef202",
+              "type": "enemy",
+              "name": "Menacing Medusozoa",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef203",
+              "type": "enemy",
+              "name": "Belligerent Berghia",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "22bc1981-77c2-4f97-8343-4820da8ef003",
+          "type": "subgroup",
+          "name": "AAC",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef301",
+              "type": "enemy",
+              "name": "Loutish Loach",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef302",
+              "type": "enemy",
+              "name": "Pesky Pleco",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef303",
+              "type": "enemy",
+              "name": "Shifty Shrimp",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "22bc1981-77c2-4f97-8343-4820da8ef004",
+          "type": "subgroup",
+          "name": "SSC",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef401",
+              "type": "enemy",
+              "name": "Killer Krill",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef402",
+              "type": "enemy",
+              "name": "Chaotic Chiton",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef403",
+              "type": "enemy",
+              "name": "Muscular Mussel",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 10,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        },
+        {
+          "id": "22bc1981-77c2-4f97-8343-4820da8ef005",
+          "type": "subgroup",
+          "name": "Torrential Tyrants",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef501",
+              "type": "enemy",
+              "name": "Nyagarha the Falls Guardian",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "22bc1981-77c2-4f97-8343-4820da8ef502",
+              "type": "enemy",
+              "name": "Ancient Wisdom Keeper",
+              "include": false,
+              "completed": false,
+              "override_message": "Ancient Wisdom Keeper (AWK)",
+              "needs_snipe": false,
+              "price": 20,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": false
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    },
+    {
+      "id": "44ce3193-55e4-4a75-9235-6b82dc8ef001",
+      "type": "region",
+      "name": "Conclusion Cliffs",
+      "include": false,
+      "completed": false,
+      "override_message": "",
+      "needs_snipe": false,
+      "price": 0,
+      "children": [
+        {
+          "id": "44ce3193-55e4-4a75-9235-6b82dc8ef201",
+          "type": "subgroup",
+          "name": "Adventure",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef211",
+              "type": "enemy",
+              "name": "Indigo Montana",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef212",
+              "type": "enemy",
+              "name": "Robbin' Cloak",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef213",
+              "type": "enemy",
+              "name": "Captain Noname",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1rare"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef214",
+              "type": "enemy",
+              "name": "Dawn Quixotic",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef215",
+              "type": "enemy",
+              "name": "Duke of Reuben",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef216",
+              "type": "enemy",
+              "name": "Three Mouseketeers",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": [],
+              "sidenotes": "t3"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "44ce3193-55e4-4a75-9235-6b82dc8ef301",
+          "type": "subgroup",
+          "name": "Comedy",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef311",
+              "type": "enemy",
+              "name": "Lady Breakwell",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef312",
+              "type": "enemy",
+              "name": "Zephrum Bobblebrox",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef313",
+              "type": "enemy",
+              "name": "Ignoramius J. Wryly",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1rare"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef314",
+              "type": "enemy",
+              "name": "Tumblestaff",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef315",
+              "type": "enemy",
+              "name": "Ratberry",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef316",
+              "type": "enemy",
+              "name": "Miss Crunchbull",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": [],
+              "sidenotes": "t3"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "44ce3193-55e4-4a75-9235-6b82dc8ef401",
+          "type": "subgroup",
+          "name": "Romance",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef411",
+              "type": "enemy",
+              "name": "Lisa Doolots",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef412",
+              "type": "enemy",
+              "name": "Lady Blatherly",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef413",
+              "type": "enemy",
+              "name": "Mr. Daresee",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1rare"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef414",
+              "type": "enemy",
+              "name": "Rouge O'Hair",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef415",
+              "type": "enemy",
+              "name": "Red Valet",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef416",
+              "type": "enemy",
+              "name": "Dilemma Woodmouse",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": [],
+              "sidenotes": "t3"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "44ce3193-55e4-4a75-9235-6b82dc8ef501",
+          "type": "subgroup",
+          "name": "Suspense",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef511",
+              "type": "enemy",
+              "name": "Nancy Sketched",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef512",
+              "type": "enemy",
+              "name": "Hardy Mice",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef513",
+              "type": "enemy",
+              "name": "Herbie Pirouette",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1rare"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef514",
+              "type": "enemy",
+              "name": "Skillful Mr. Cutley",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef515",
+              "type": "enemy",
+              "name": "Professor Morty Artie",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef516",
+              "type": "enemy",
+              "name": "Becca de Frost",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": [],
+              "sidenotes": "t3"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "44ce3193-55e4-4a75-9235-6b82dc8ef601",
+          "type": "subgroup",
+          "name": "Tragedy",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef611",
+              "type": "enemy",
+              "name": "Billy Lowfellow",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef612",
+              "type": "enemy",
+              "name": "Great Ratsby",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef613",
+              "type": "enemy",
+              "name": "Madame Bogarty",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1rare"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef614",
+              "type": "enemy",
+              "name": "Lady MacBath",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef615",
+              "type": "enemy",
+              "name": "Prince Hapless",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef616",
+              "type": "enemy",
+              "name": "Aching Heels",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": [],
+              "sidenotes": "t3"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "44ce3193-55e4-4a75-9235-6b82dc8ef701",
+          "type": "subgroup",
+          "name": "Fantasy",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef711",
+              "type": "enemy",
+              "name": "Petra Pot",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef712",
+              "type": "enemy",
+              "name": "Gerald Rivers",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef713",
+              "type": "enemy",
+              "name": "Danielle Targatheon",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t1rare"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef714",
+              "type": "enemy",
+              "name": "Grandolph the Green",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef715",
+              "type": "enemy",
+              "name": "Rinsebreeze",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 5,
+              "children": [],
+              "sidenotes": "t2"
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef716",
+              "type": "enemy",
+              "name": "Janis the Grey Witch",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 40,
+              "children": [],
+              "sidenotes": "t3"
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "44ce3193-55e4-4a75-9235-6b82dc8ef801",
+          "type": "subgroup",
+          "name": "Lore Weavers",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 0,
+          "children": [
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef811",
+              "type": "enemy",
+              "name": "Adventure Weaver",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 70,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef812",
+              "type": "enemy",
+              "name": "Comedy Weaver",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 70,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef813",
+              "type": "enemy",
+              "name": "Romance Weaver",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 70,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef814",
+              "type": "enemy",
+              "name": "Suspense Weaver",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 70,
+              "children": [],
+              "sidenotes": ""
+            },
+            {
+              "id": "44ce3193-55e4-4a75-9235-6b82dc8ef815",
+              "type": "enemy",
+              "name": "Tragedy Weaver",
+              "include": false,
+              "completed": false,
+              "override_message": "",
+              "needs_snipe": false,
+              "price": 70,
+              "children": [],
+              "sidenotes": ""
+            }
+          ],
+          "sidenotes": "",
+          "must_contains_all": true,
+          "auto_collapse": true
+        },
+        {
+          "id": "44ce3193-55e4-4a75-9235-6b82dc8ef901",
+          "type": "enemy",
+          "name": "Ultimate Mythweaver",
+          "include": false,
+          "completed": false,
+          "override_message": "",
+          "needs_snipe": false,
+          "price": 25,
+          "children": [],
+          "sidenotes": ""
+        }
+      ],
+      "sidenotes": "",
+      "must_contains_all": true,
+      "auto_collapse": false
+    }
+  ],
+  "search_prefix": "in:\n map-snipers",
+  "search_copy_word_count": 1,
+  "thankyou_messages": [
+    {
+      "text": "Invited and paid, Thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid, thanks so much!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid, thank you kindly!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and payment sent, thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited to the map and paid; thank you!",
+      "enabled": true
+    },
+    {
+      "text": "Invited and paid in full, thank you!",
+      "enabled": true
+    }
+  ],
+  "thankyou_text": "Invited and paid, Thank you!",
+  "message_formats": [
+    "<name>: <price>",
+    "<name> <price>",
+    "<name> - <price>"
+  ],
+  "selected_message_format": "<name>: <price>",
+  "sound_enabled": true,
+  "sound_volume": 0.13157894736842105,
+  "auto_round_prices": false,
+  "random_copy_if_long": true,
+  "show_subgroup_in_todo_list": true,
+  "sort_by_region_instead": true,
+  "hide_unneeded_enemies_in_tree": false
+}

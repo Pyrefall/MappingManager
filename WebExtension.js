@@ -605,6 +605,10 @@ function shouldAutoRoundPrices(){
   return !!App.data.auto_round_prices;
 }
 
+function randomCopyIfLongEnabled(){
+  return App.data.random_copy_if_long !== false;
+}
+
 function roundPriceForCopy(price){
   let value = Number(price || 0);
   if (!Number.isFinite(value)) value = 0;
@@ -628,6 +632,28 @@ function formatMessageLine(name, price, applyRound){
     return `${safeName}: ${safePrice}`;
   }
   return format.replace(/<name>/g, safeName).replace(/<price>/g, String(safePrice));
+}
+
+function copyEntriesForMessage(){
+  if (!Array.isArray(App.msgItemsData)) return [];
+  const entries = App.msgItemsData.slice();
+  if (!entries.length) return [];
+  const maxEntries = 9;
+  if (entries.length <= maxEntries) return entries;
+  if (!randomCopyIfLongEnabled()) return entries.slice(0, maxEntries);
+  const pool = entries.slice();
+  const picked = [];
+  while (picked.length < maxEntries && pool.length){
+    const idx = Math.floor(Math.random() * pool.length);
+    picked.push(pool.splice(idx, 1)[0]);
+  }
+  picked.sort((a, b) => {
+    if (b[0] !== a[0]) return b[0] - a[0];
+    const nameA = (a[1] || "").toLowerCase();
+    const nameB = (b[1] || "").toLowerCase();
+    return nameA.localeCompare(nameB);
+  });
+  return picked;
 }
 
 function copyRandomThankyou(){
@@ -691,6 +717,11 @@ function showUserSettings(){
         </div>
 
         <div class="mhmm-settings-field">
+          <label class="mhmm-small">Market message copy</label>
+          <label class="mhmm-inline-check"><input id="mhmm-settings-random-copy" type="checkbox" /> Randomly copy if market message is too long</label>
+        </div>
+
+        <div class="mhmm-settings-field">
           <label class="mhmm-small">Panel toggle shortcut</label>
           <div class="mhmm-settings-row">
             <input id="mhmm-settings-hotkey" type="text" class="mhmm-input" placeholder="Space" />
@@ -707,6 +738,7 @@ function showUserSettings(){
   const prefixInput = wrap.querySelector('#mhmm-settings-prefix');
   const soundToggle = wrap.querySelector('#mhmm-settings-sound');
   const roundToggle = wrap.querySelector('#mhmm-settings-round');
+  const randomToggle = wrap.querySelector('#mhmm-settings-random-copy');
   const hotkeyInput = wrap.querySelector('#mhmm-settings-hotkey');
   const hotkeyRecordBtn = wrap.querySelector('#mhmm-settings-hotkey-record');
   const hotkeyClearBtn = wrap.querySelector('#mhmm-settings-hotkey-clear');
@@ -714,6 +746,7 @@ function showUserSettings(){
   prefixInput.value = App.data.search_prefix || DEFAULT_SEARCH_PREFIX;
   if(soundToggle) soundToggle.checked = App.soundEnabled;
   if(roundToggle) roundToggle.checked = shouldAutoRoundPrices();
+  if(randomToggle) randomToggle.checked = randomCopyIfLongEnabled();
   if(hotkeyInput){
     hotkeyInput.value = App.toggleHotkey || DEFAULT_TOGGLE_HOTKEY;
   }
@@ -931,6 +964,7 @@ function showUserSettings(){
     App.data.message_formats = normalizeMessageFormats(formatPayload);
     App.data.selected_message_format = selectedFormatText;
     App.data.auto_round_prices = roundToggle ? !!roundToggle.checked : false;
+    App.data.random_copy_if_long = randomToggle ? !!randomToggle.checked : true;
     setSoundEnabled(soundToggle ? soundToggle.checked : App.soundEnabled);
     if(hotkeyInput){
       const normalizedHotkey = normalizeHotkeyString(hotkeyInput.value);
@@ -1113,7 +1147,8 @@ const App = {
     thankyou_messages: defaultThankyouMessages(),
     message_formats: DEFAULT_MESSAGE_FORMATS.slice(),
     selected_message_format: DEFAULT_MESSAGE_FORMATS[0],
-    auto_round_prices: false
+    auto_round_prices: false,
+    random_copy_if_long: true
   },
   toggleHotkey: normalizeHotkeyString(GM_getValue(GM_KEYS.TOGGLE_HOTKEY, DEFAULT_TOGGLE_HOTKEY)) || DEFAULT_TOGGLE_HOTKEY,
   soundEnabled: GM_getValue(GM_KEYS.SOUND_ENABLED, true),
@@ -1652,6 +1687,7 @@ function buildPanel(){
   const last = GM_getValue(GM_KEYS.LAST_SNAPSHOT, null);
   if(last){ try{ App.data = JSON.parse(last); }catch(_){} }
   if(typeof App.data.auto_round_prices !== "boolean") App.data.auto_round_prices = false;
+  if(typeof App.data.random_copy_if_long !== "boolean") App.data.random_copy_if_long = true;
   if(typeof App.toggleHotkey !== "string" || !App.toggleHotkey){
     App.toggleHotkey = DEFAULT_TOGGLE_HOTKEY;
   }
@@ -2157,9 +2193,10 @@ function buildMessageLines(applyRound){
   const lines = [];
   const intro = (App.data.intro_line || "").trim();
   if(intro) lines.push(intro);
-  if(!Array.isArray(App.msgItemsData)) return lines;
+  const entries = copyEntriesForMessage();
+  if(!entries.length) return lines;
   const useRound = applyRound && shouldAutoRoundPrices();
-  for(const [price, name] of App.msgItemsData){
+  for(const [price, name] of entries){
     lines.push(formatMessageLine(name, price, useRound));
   }
   return lines;
@@ -2372,6 +2409,7 @@ async function onImport(){
       : DEFAULT_MESSAGE_FORMATS.slice();
     App.data.selected_message_format = data.selected_message_format || App.data.message_formats[0];
     App.data.auto_round_prices = !!data.auto_round_prices;
+    App.data.random_copy_if_long = data.random_copy_if_long !== undefined ? !!data.random_copy_if_long : true;
     const importedHotkey = normalizeHotkeyString(data.toggle_hotkey);
     if(importedHotkey){
       App.toggleHotkey = importedHotkey;

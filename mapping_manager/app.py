@@ -66,6 +66,10 @@ class MappingManagerApp(tk.Tk):
             "sound_enabled": True,
             "sound_volume": 0.25,
             "search_copy_word_count": 1,
+            "random_copy_if_long": True,
+            "show_subgroup_in_todo_list": False,
+            "sort_by_region_instead": False,
+            "hide_unneeded_enemies_in_tree": False,
         }
         self.data["thankyou_text"] = self.data["thankyou_messages"][0]["text"]
         self.data["selected_message_format"] = self._selected_message_format()
@@ -572,6 +576,9 @@ class MappingManagerApp(tk.Tk):
     def _should_round_prices(self) -> bool:
         return bool(self.data.get("auto_round_prices", False))
 
+    def _random_copy_if_long_enabled(self) -> bool:
+        return bool(self.data.get("random_copy_if_long", True))
+
     @staticmethod
     def _round_price_for_copy(price: int) -> int:
         try:
@@ -642,16 +649,36 @@ class MappingManagerApp(tk.Tk):
         if intro:
             lines.append(intro)
 
-        if not hasattr(self, "_msg_items_data"):
+        entries = self._copy_entries_for_message()
+        if not entries:
             return lines
 
         use_rounding = apply_rounding and self._should_round_prices()
 
-        for price, name, _ in self._msg_items_data:
+        for price, name, _ in entries:
             lines.append(
                 self._format_entry_line(name, price, apply_rounding=use_rounding)
             )
         return lines
+
+    def _copy_entries_for_message(self) -> List[Tuple[int, str, Optional[str]]]:
+        if not hasattr(self, "_msg_items_data"):
+            return []
+        entries = list(self._msg_items_data)
+        if not entries:
+            return []
+
+        max_entries = 9
+
+        if len(entries) <= max_entries:
+            return entries
+
+        if not self._random_copy_if_long_enabled():
+            return entries[:max_entries]
+
+        sampled = random.sample(entries, max_entries)
+        sampled.sort(key=lambda item: (-item[0], (item[1] or "").lower()))
+        return sampled
 
     def _normalize_volume(self, value) -> float:
         try:
@@ -836,16 +863,63 @@ class MappingManagerApp(tk.Tk):
             if not name:
                 continue
             items.append((price, name, n.get("id")))
-        items.sort(key=lambda x: (-x[0], x[1].lower()))
-        return items
+        return self._sort_item_entries(items)
+
+    def _build_todo_path_label(self, node_id: str) -> str:
+        path = self._find_path_to_node(self.data.get("regions", []), node_id)
+        if not path or len(path) < 2:
+            return ""
+        parts: List[str] = []
+        for p in reversed(path[:-1]):
+            if p.get("type") in ("subgroup", "region"):
+                name = (p.get("name") or "").strip()
+                if name:
+                    parts.append(name)
+        return "/".join(parts)
+
+    def _format_todo_display_name(self, name: str, node_id: str) -> str:
+        base = (name or "").strip()
+        if not self.data.get("show_subgroup_in_todo_list", False):
+            return base
+        path_label = self._build_todo_path_label(node_id)
+        return f"{base} - {path_label}" if path_label else base
+
+    def _sort_by_region_instead_enabled(self) -> bool:
+        return bool(self.data.get("sort_by_region_instead", False))
+
+    def _build_node_sort_path(self, node_id: str) -> str:
+        path = self._find_path_to_node(self.data.get("regions", []), node_id)
+        if not path:
+            return ""
+        parts: List[str] = []
+        for p in path[:-1]:
+            if p.get("type") in ("subgroup", "region"):
+                name = (p.get("name") or "").strip()
+                if name:
+                    parts.append(name.lower())
+        return "/".join(parts)
+
+    def _sort_item_entries(
+        self, entries: List[Tuple[int, str, str]]
+    ) -> List[Tuple[int, str, str]]:
+        if self._sort_by_region_instead_enabled():
+            return sorted(
+                entries,
+                key=lambda x: (
+                    self._build_node_sort_path(x[2]),
+                    x[1].lower(),
+                    -x[0],
+                ),
+            )
+        return sorted(entries, key=lambda x: (-x[0], x[1].lower()))
 
     def update_todo_list(self):
         """Refresh the Todo List UI from current data."""
         items = self.compute_todo_items()
         self._todo_items_data = items  # keep (price, name, node_id) for tooltip lookup
         self.list_todo.delete(0, tk.END)
-        for _price, name, _node_id in items:
-            self.list_todo.insert(tk.END, name)
+        for _price, name, node_id in items:
+            self.list_todo.insert(tk.END, self._format_todo_display_name(name, node_id))
 
     def _price_of(self, n: Dict) -> int:
         """Parse node price as integer; fallback to 0."""
@@ -1071,7 +1145,7 @@ class MappingManagerApp(tk.Tk):
             p = int(node.get("price", 0))
         except Exception:
             p = 0
-        if (node.get("type") == "region") and p == 0:
+        if p == 0:
             return ""
         return p
     def _select_tree_node_by_id(self, node_id: str):
@@ -1099,6 +1173,13 @@ class MappingManagerApp(tk.Tk):
 
     def _insert_tree_node(self, parent_iid: str, node: Dict):
         """Insert one node (and its children) into Treeview using node['id'] as iid."""
+        if (
+            self.data.get("hide_unneeded_enemies_in_tree", False)
+            and node.get("type") == "enemy"
+            and not node.get("include", True)
+        ):
+            return
+
         values = (
             "✓" if node.get("needs_snipe") else "",
             "✓" if node.get("include", True) else "",
@@ -1212,7 +1293,7 @@ class MappingManagerApp(tk.Tk):
                     p = 0
 
                 delta = 0
-                if p > 100:
+                if p >= 100:
                     delta = -5
                 elif 50 < p < 100:
                     delta = -3
@@ -1264,7 +1345,7 @@ class MappingManagerApp(tk.Tk):
                     p = 0
 
                 delta = 0
-                if p > 100:
+                if p >= 100:
                     delta = +5
                 elif 50 < p < 100:
                     delta = +3
@@ -1459,8 +1540,7 @@ class MappingManagerApp(tk.Tk):
             except Exception:
                 price = 0
             entries.append((price, name, n.get("id")))
-
-        entries.sort(key=lambda x: (-x[0], x[1].lower()))
+        entries = self._sort_item_entries(entries)
 
         self._msg_items_data = entries[:]
         self.list_msg.delete(0, tk.END)
@@ -1706,6 +1786,10 @@ class MappingManagerApp(tk.Tk):
         self.data["sound_enabled"] = bool(raw.get("sound_enabled", True))
         self.data["sound_volume"] = self._normalize_volume(raw.get("sound_volume", 0.25))
         self.data["auto_round_prices"] = bool(raw.get("auto_round_prices", False))
+        self.data["random_copy_if_long"] = bool(raw.get("random_copy_if_long", True))
+        self.data["show_subgroup_in_todo_list"] = bool(raw.get("show_subgroup_in_todo_list", False))
+        self.data["sort_by_region_instead"] = bool(raw.get("sort_by_region_instead", False))
+        self.data["hide_unneeded_enemies_in_tree"] = bool(raw.get("hide_unneeded_enemies_in_tree", False))
         self._update_audio_config()
         self.refresh_tree()
         self._clear_editor()
@@ -1728,8 +1812,12 @@ class MappingManagerApp(tk.Tk):
         self.data["message_formats"] = formats
         self.data["selected_message_format"] = self._selected_message_format()
         self.data["auto_round_prices"] = bool(self.data.get("auto_round_prices", False))
+        self.data["random_copy_if_long"] = bool(self.data.get("random_copy_if_long", True))
         self.data["sound_enabled"] = bool(self.data.get("sound_enabled", True))
         self.data["sound_volume"] = self._sound_volume()
+        self.data["show_subgroup_in_todo_list"] = bool(self.data.get("show_subgroup_in_todo_list", False))
+        self.data["sort_by_region_instead"] = bool(self.data.get("sort_by_region_instead", False))
+        self.data["hide_unneeded_enemies_in_tree"] = bool(self.data.get("hide_unneeded_enemies_in_tree", False))
         self._update_audio_config()
 
         try:
@@ -2270,9 +2358,77 @@ class MappingManagerApp(tk.Tk):
             help_label = create_help_icon(round_row, tooltip_text)
             help_label.pack(side=tk.LEFT, padx=(6, 0))
 
+            # Random copy option
+            var_random_copy_local = tk.BooleanVar(value=bool(self.data.get("random_copy_if_long", True)))
+            random_row = ttk.Frame(frm)
+            random_row.grid(row=7, column=0, columnspan=2, sticky="w", pady=(0, 6))
+            chk_random = ttk.Checkbutton(
+                random_row,
+                text="Randomly copy if market message is too long",
+                variable=var_random_copy_local,
+            )
+            chk_random.pack(side=tk.LEFT)
+
+            random_help = create_help_icon(
+                random_row,
+                "Copying the generated market message will randomly pick nine snipe targets when more than nine are available, then order them by price.",
+            )
+            random_help.pack(side=tk.LEFT, padx=(6, 0))
+
+            var_show_subgroup_local = tk.BooleanVar(
+                value=bool(self.data.get("show_subgroup_in_todo_list", False))
+            )
+            subgroup_row = ttk.Frame(frm)
+            subgroup_row.grid(row=8, column=0, columnspan=2, sticky="w", pady=(0, 6))
+            ttk.Checkbutton(
+                subgroup_row,
+                text="Show SubGroup in TodoList",
+                variable=var_show_subgroup_local,
+            ).pack(side=tk.LEFT)
+
+            subgroup_help = create_help_icon(
+                subgroup_row,
+                "Show subgroup/region path after each Todo item using the format Subgroup/.../Region.",
+            )
+            subgroup_help.pack(side=tk.LEFT, padx=(6, 0))
+
+            var_sort_region_local = tk.BooleanVar(
+                value=bool(self.data.get("sort_by_region_instead", False))
+            )
+            sort_region_row = ttk.Frame(frm)
+            sort_region_row.grid(row=9, column=0, columnspan=2, sticky="w", pady=(0, 6))
+            ttk.Checkbutton(
+                sort_region_row,
+                text="Sort By Region instead",
+                variable=var_sort_region_local,
+            ).pack(side=tk.LEFT)
+
+            sort_region_help = create_help_icon(
+                sort_region_row,
+                "Sort Todo items and generated market entries by Region/Subgroup path first instead of by price.",
+            )
+            sort_region_help.pack(side=tk.LEFT, padx=(6, 0))
+
+            var_hide_unneeded_enemies_local = tk.BooleanVar(
+                value=bool(self.data.get("hide_unneeded_enemies_in_tree", False))
+            )
+            hide_unneeded_enemies_row = ttk.Frame(frm)
+            hide_unneeded_enemies_row.grid(row=10, column=0, columnspan=2, sticky="w", pady=(0, 6))
+            ttk.Checkbutton(
+                hide_unneeded_enemies_row,
+                text="Hide Need=false enemies in left tree",
+                variable=var_hide_unneeded_enemies_local,
+            ).pack(side=tk.LEFT)
+
+            hide_unneeded_enemies_help = create_help_icon(
+                hide_unneeded_enemies_row,
+                "Hide enemy rows with Need unchecked in the left tree while keeping Region and Subgroup rows visible.",
+            )
+            hide_unneeded_enemies_help.pack(side=tk.LEFT, padx=(6, 0))
+
             # Buttons
             btns = ttk.Frame(frm)
-            btns.grid(row=7, column=0, columnspan=2, sticky="e", pady=(12, 0))
+            btns.grid(row=11, column=0, columnspan=2, sticky="e", pady=(12, 0))
 
             def on_save():
                 # Persist values back into the main app state
@@ -2336,12 +2492,18 @@ class MappingManagerApp(tk.Tk):
                 self.data["thankyou_messages"] = normalized_messages
                 self.data["thankyou_text"] = normalized_messages[0]["text"]
                 self.data["auto_round_prices"] = bool(var_round_local.get())
+                self.data["random_copy_if_long"] = bool(var_random_copy_local.get())
                 self.data["sound_enabled"] = bool(var_sound_enabled.get())
                 self.data["sound_volume"] = self._normalize_volume(var_sound_volume.get() / 100)
+                self.data["show_subgroup_in_todo_list"] = bool(var_show_subgroup_local.get())
+                self.data["sort_by_region_instead"] = bool(var_sort_region_local.get())
+                self.data["hide_unneeded_enemies_in_tree"] = bool(var_hide_unneeded_enemies_local.get())
                 self._update_audio_config()
 
                 # Refresh the generated area and persist to disk if a file is open
                 self.on_generate_message(auto_copy=False)
+                self.refresh_tree()
+                self.update_todo_list()
                 try:
                     if self.current_file:
                         self._write_to_file(self.current_file)
